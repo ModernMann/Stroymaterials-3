@@ -27,6 +27,7 @@ namespace Stroymaterials.PageAdmin
         private string namephoto;
         public PageCreateMaterials(Materials material) 
         {
+            text_name.Focus();
             InitializeComponent();
             foreach (var item in AppConnect.model0db.Category.ToList())
             {
@@ -63,7 +64,7 @@ namespace Stroymaterials.PageAdmin
                 text_description.Text = _materials.materials_description;
                 text_price.Text = _materials.materials_price.ToString();
 
-            text_name.Focus();
+            
             
 
         }
@@ -89,10 +90,10 @@ namespace Stroymaterials.PageAdmin
         public PageCreateMaterials()
         {
             InitializeComponent();
-
+            text_name.Focus();
             ///
             ///AppData.CategoryName.cat = AppConnect.model0db.Category.ToList().ElementAt(0);
-            
+
             foreach (var item in AppConnect.model0db.Category.ToList())
             {
                 combobox_category.Items.Add(item.category_name);

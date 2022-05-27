@@ -67,17 +67,26 @@ namespace Stroymaterials.PageMenu
         }
         public PageCatalog( int role)
         {
-             
+            
             InitializeComponent();
             SetPriceMaterials();
             SetMakerMaterials();
-            if (role == 3)
+            switch (role)
             {
-                button_adminpanel.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                button_adminpanel.Visibility = Visibility.Hidden;
+                case 1:
+                    button_adminpanel.Visibility = Visibility.Hidden;
+                    break;
+                case 2:
+                    button_adminpanel.Visibility = Visibility.Hidden;
+                    break;
+                case 3:
+                    button_adminpanel.Visibility = Visibility.Visible;
+                    break;
+                case 4:
+                    button_adminpanel.Visibility = Visibility.Hidden;
+                    button_exit.Content = "Войти";
+                    break;
+
             }
         }
 

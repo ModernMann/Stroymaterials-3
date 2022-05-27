@@ -78,7 +78,7 @@ namespace Stroymaterials.PageAuthorization
 
         private void button_guest_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.frmmain.Navigate(new PageCatalog(role));
+            AppFrame.frmmain.Navigate(new PageCatalog(4));
 
         }
     }
