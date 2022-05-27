@@ -8,15 +8,15 @@
       d:DesignHeight="400" d:DesignWidth="800"
       Title="Страница Входа" Width="640" Height="400">
 
-    <Grid x:Name="grid_login" Width="640" Height="400" Background="#FFCFE6E0">
-        <TextBox x:Name="login_label" HorizontalAlignment="Left" Height="30" Margin="196,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="20" Background="#FF94CDBE" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <PasswordBox x:Name="password_label" HorizontalAlignment="Left" Margin="196,159,0,0" VerticalAlignment="Top" Width="255" Height="30" FontSize="20" Background="#FF94CDBE" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <Label x:Name="login_text" Content="Введите логин" HorizontalAlignment="Left" Margin="196,51,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <Label x:Name="password_text" Content="Введите пароль" HorizontalAlignment="Left" Margin="196,124,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" FontWeight="Bold" Foreground="#FF4D766B"/>
-        <Button x:Name="button_enter" Content="Войти" HorizontalAlignment="Left" Margin="196,204,0,0" VerticalAlignment="Top" Width="255" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_enter_Click" BorderBrush="#FF2A8D74" Background="#FF94CDBE" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <Button x:Name="button_registration" Content="Регистрация" HorizontalAlignment="Left" Margin="196,260,0,0" VerticalAlignment="Top" Width="90" Height="25" FontSize="15" Click="button_registration_Click" Background="#FFCFE6E0" BorderBrush="#FFCFE6E0" Foreground="#FF4D766B"/>
-        <Button x:Name="button_guest" Content="Продолжить как гость" HorizontalAlignment="Left" Height="25" Margin="291,260,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="button_guest_Click" Background="#FFCFE6E0" BorderBrush="#FFCFE6E0" Foreground="#FF4D766B"/>
-        <Label x:Name="lable_del" Content="|" HorizontalAlignment="Left" Margin="281,254,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Foreground="#FF4D766B"/>
+    <Grid x:Name="grid_login" Width="640" Height="400" Background="White">
+        <TextBox x:Name="login_label" HorizontalAlignment="Left" Height="30" Margin="196,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="20" Background="{x:Null}" Foreground="Red" FontWeight="Bold" BorderBrush="Black" SelectionBrush="#FFAB0303"/>
+        <PasswordBox x:Name="password_label" HorizontalAlignment="Left" Margin="196,159,0,0" VerticalAlignment="Top" Width="255" Height="30" FontSize="20" Background="{x:Null}" Foreground="Red" FontWeight="Bold" SelectionBrush="#FFAB0303" BorderBrush="Black"/>
+        <Label x:Name="login_text" Content="Введите логин" HorizontalAlignment="Left" Margin="196,51,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" Foreground="Black"/>
+        <Label x:Name="password_text" Content="Введите пароль" HorizontalAlignment="Left" Margin="196,124,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" Foreground="Black" Background="White"/>
+        <Button x:Name="button_enter" Content="Войти" HorizontalAlignment="Left" Margin="196,204,0,0" VerticalAlignment="Top" Width="255" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_enter_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black"/>
+        <Button x:Name="button_registration" Content="Регистрация" HorizontalAlignment="Left" Margin="196,260,0,0" VerticalAlignment="Top" Width="90" Height="25" FontSize="15" Click="button_registration_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
+        <Button x:Name="button_guest" Content="Продолжить как гость" HorizontalAlignment="Left" Height="25" Margin="291,260,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="button_guest_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
+        <Label x:Name="lable_del" Content="|" HorizontalAlignment="Left" Margin="281,254,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Foreground="#FFAB0303"/>
 
     </Grid>
 </Page>

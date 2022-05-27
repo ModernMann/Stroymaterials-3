@@ -28,6 +28,7 @@ namespace Stroymaterials
             AppConnect.model0db = new StorymaterialsEntities1();
             AppFrame.frmmain = main_frame;
             main_frame.Navigate(new PageLogin());
+            
         }
     }
 }

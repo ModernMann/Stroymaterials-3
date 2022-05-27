@@ -94,10 +94,10 @@
     <Compile Include="AppData\Category.cs">
       <DependentUpon>ModelStorymaterialsEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\CategoryName.cs" />
     <Compile Include="AppData\Check.cs">
       <DependentUpon>ModelStorymaterialsEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\Flag.cs" />
     <Compile Include="AppData\Makers.cs">
       <DependentUpon>ModelStorymaterialsEDM.tt</DependentUpon>
     </Compile>
@@ -242,8 +242,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="index.png" />
-    <Resource Include="Resources\index.png" />
+    <Resource Include="masterskaya.png" />
     <Resource Include="png-transparent-sovil-distribuidora-ltda-building-materials-business-empresa-text-retail-logo.png" />
     <Resource Include="Resources\img\mobi-met-regatta-600-0-2-4.jpg" />
     <Resource Include="Resources\img\uk512287.jpg" />

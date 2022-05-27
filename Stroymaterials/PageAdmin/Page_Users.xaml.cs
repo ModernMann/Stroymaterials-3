@@ -25,7 +25,6 @@ namespace Stroymaterials.PageAdmin
     /// 
     public partial class Page_Users : Page
     {
-        public int a;
         public Page_Users()
         {
             InitializeComponent();
@@ -41,52 +40,67 @@ namespace Stroymaterials.PageAdmin
         {
             if (MessageBox.Show("Вы уверены, что хотите удалить пользователя?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                var userObj = listview_users.SelectedItems.Cast<Users>().ToList();
-             
-                try
+                var userObj1 = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
+                if (Flag.flag == userObj1.users_login)
                 {
-                    StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj);
-                    StorymaterialsEntities1.GetContext().SaveChanges();
-                    MessageBox.Show("Пользователь успешно удалён!");
+                    MessageBox.Show("Вы не можете удалить себя!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else {
+                    try
+                    {
+                        var userObj = listview_users.SelectedItems.Cast<Users>().ToList();
+                        StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj);
+                        StorymaterialsEntities1.GetContext().SaveChanges();
+                        MessageBox.Show("Пользователь успешно удалён!");
 
-                    listview_users.ItemsSource = StorymaterialsEntities1.GetContext().Users.ToList();
+                        listview_users.ItemsSource = StorymaterialsEntities1.GetContext().Users.ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
                 }
-                catch (Exception ex) 
-                { 
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                
                 
             }
         }
 
         private void button_edit_Click(object sender, RoutedEventArgs e)
         {
-            var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
-            Users users = new Users()
-            {
-                users_firstname = userObj.users_firstname,
-                users_middlename = userObj.users_middlename,
-                users_lastname = userObj.users_lastname,
-                users_datebirth = userObj.users_datebirth,
-                users_mail = userObj.users_mail,
-                users_phone = userObj.users_phone,
-                users_login = userObj.users_login,
-                users_password = userObj.users_password,
-                users_role = userObj.users_role
-            };
-            var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();
-
             try
             {
-                StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj2);
-                StorymaterialsEntities1.GetContext().SaveChanges();
-                
+                var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
+                Users users = new Users()
+                {
+                    users_firstname = userObj.users_firstname,
+                    users_middlename = userObj.users_middlename,
+                    users_lastname = userObj.users_lastname,
+                    users_datebirth = userObj.users_datebirth,
+                    users_mail = userObj.users_mail,
+                    users_phone = userObj.users_phone,
+                    users_login = userObj.users_login,
+                    users_password = userObj.users_password,
+                    users_role = userObj.users_role
+                };
+                var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();
+
+                try
+                {
+                    StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj2);
+                    StorymaterialsEntities1.GetContext().SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                AppFrame.frmmain.Navigate(new PageAddUser(users));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            AppFrame.frmmain.Navigate(new PageAddUser(users));
+            
         }
 
         private void button_materials_Click(object sender, RoutedEventArgs e)

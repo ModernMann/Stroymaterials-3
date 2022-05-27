@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Stroymaterials.AppData;
 namespace Stroymaterials.PageAuthorization
 {
     /// <summary>
@@ -24,6 +24,7 @@ namespace Stroymaterials.PageAuthorization
     public partial class PageLogin : Page
     {
         public int role;
+        
         public PageLogin()
         {
             InitializeComponent();
@@ -55,8 +56,7 @@ namespace Stroymaterials.PageAuthorization
                             MessageBoxImage.Information);
                             break;
                         case 3:
-                            /*MessageBox.Show(userOdj.users_login + " , Вы вошли как администратор", "Уведомление", MessageBoxButton.OK,
-                            MessageBoxImage.Information);*/
+                            Flag.flag= userOdj.users_login;
                             AppFrame.frmmain.Navigate(new PageCatalog(role));
                             break;
                         default:
@@ -69,6 +69,7 @@ namespace Stroymaterials.PageAuthorization
             {
                 MessageBox.Show("" + Ex.Message.ToString() + "", "", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            
         }
 
         private void button_registration_Click(object sender, RoutedEventArgs e)
@@ -78,6 +79,7 @@ namespace Stroymaterials.PageAuthorization
 
         private void button_guest_Click(object sender, RoutedEventArgs e)
         {
+
             AppFrame.frmmain.Navigate(new PageCatalog(4));
 
         }

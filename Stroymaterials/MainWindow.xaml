@@ -5,17 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stroymaterials"
         mc:Ignorable="d"
-        Title="Вход и Регистрация" Height="600" Width="800" FontSize="20">
-    <Grid x:Name="grid_main" Background="#FFCFE6E0">
+        Title="Стройматериалы" Height="600" Width="800">
+    <Grid x:Name="grid_main" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="150*"/>
             <RowDefinition Height="450*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="image_logo" HorizontalAlignment="Left" Height="122" Margin="87,10,0,0" VerticalAlignment="Top" Width="161" Source="index.png"/>
-        <Label x:Name="label_logo" Content="ООО «Стройматериалы»" HorizontalAlignment="Left" Height="60" Margin="270,27,0,0" VerticalAlignment="Top" Width="475" FontSize="40" Foreground="#FF4D766B"/>
-        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="800" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Left" Margin="270,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="40" FontWeight="Bold" 
-                   Text="{Binding ElementName=main_frame, Path=Content.Title}" Foreground="#FF4D766B"/>
+        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Left" Height="427" VerticalAlignment="Top" Width="792" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Image HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="382" Source="masterskaya.png" Margin="39,0,0,0"/>
     </Grid>
 
 </Window>

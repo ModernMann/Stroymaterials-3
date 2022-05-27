@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Stroymaterials.AppData
 {
-    class CategoryName
+    public class Flag
     {
-        
-        
+        public static string flag;
     }
 }

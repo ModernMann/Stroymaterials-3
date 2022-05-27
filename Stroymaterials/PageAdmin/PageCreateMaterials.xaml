@@ -9,31 +9,31 @@
       d:DesignHeight="400" d:DesignWidth="800"
       Title="PageCreateMaterials">
 
-    <Grid Background="#FFCFE6E0">
-        <Label x:Name="label_name" Content="Введите название" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
+    <Grid>
+        <Label x:Name="label_name" Content="Введите название" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <TextBox x:Name="text_name" HorizontalAlignment="Left" Height="40" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
-        <Label x:Name="label_units" Content="Единицы изм." HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
+        <Label x:Name="label_units" Content="Единицы изм." HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <TextBox x:Name="text_units" HorizontalAlignment="Left" Height="40" Margin="10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
-        <Label x:Name="label_count" Content="Количество" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
+        <Label x:Name="label_count" Content="Количество" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <TextBox x:Name="text_count" HorizontalAlignment="Left" Height="40" Margin="10,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
         <ComboBox x:Name="combobox_category" HorizontalAlignment="Left" Margin="10,312,0,0"  VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
-        <Label x:Name="label_category" Content="Категория " HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <Label x:Name="label_price" Content="Цена" HorizontalAlignment="Left" Margin="429,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF4D766B"/>
+        <Label x:Name="label_category" Content="Категория " HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
+        <Label x:Name="label_price" Content="Цена" HorizontalAlignment="Left" Margin="429,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FFAB0303"/>
         <TextBox x:Name="text_price" HorizontalAlignment="Left" Height="40" Margin="429,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
         <ComboBox x:Name="combobox_provider" HorizontalAlignment="Left" Margin="218,52,0,0"  VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B"/>
-        <Label x:Name="label_provider" Content="Поставщик" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
+        <Label x:Name="label_provider" Content="Поставщик" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <ComboBox x:Name="combobox_makers" HorizontalAlignment="Left" Margin="218,136,0,0"  VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FF4D766B">
             <ComboBox.DataContext>
                 <AppData:Makers/>
             </ComboBox.DataContext>
         </ComboBox>
-        <Label x:Name="label_makers" Content="Производитель" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B"/>
-        <Label x:Name="label_description" Content="Описание" HorizontalAlignment="Left" Margin="218,181,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B" FontWeight="Bold"/>
-        <TextBox x:Name="text_description" HorizontalAlignment="Left" Height="125" Margin="218,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="20" Foreground="#FF4D766B"/>
-        <Button x:Name="button_save" Content="Сохранить" HorizontalAlignment="Left" Margin="608,270,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_save_Click" Foreground="#FF4D766B" FontWeight="Bold" Background="{x:Null}" BorderBrush="#FF2A8D74"/>
-        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="608,312,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_back_Click" Foreground="#FF4D766B" FontWeight="Bold" Background="{x:Null}" BorderBrush="#FF2A8D74"/>
-        <Button x:Name="button_add_image" Content="Добавить..." HorizontalAlignment="Left" Margin="588,108,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Height="40" Click="button_add_image_Click" Foreground="#FF4D766B" Background="{x:Null}" BorderBrush="#FF2A8D74"/>
-        <Label x:Name="label_image" Content="Изображение" HorizontalAlignment="Left" Margin="432,109,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF4D766B"/>
+        <Label x:Name="label_makers" Content="Производитель" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
+        <Label x:Name="label_description" Content="Описание" HorizontalAlignment="Left" Margin="218,181,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
+        <TextBox x:Name="text_description" HorizontalAlignment="Left" Height="125" Margin="218,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="20" Foreground="Black"/>
+        <Button x:Name="button_save" Content="Сохранить" HorizontalAlignment="Left" Margin="608,270,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_save_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
+        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="608,312,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_back_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
+        <Button x:Name="button_add_image" Content="Добавить..." HorizontalAlignment="Left" Margin="588,108,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Height="40" Click="button_add_image_Click" Foreground="#FFAB0303" Background="{x:Null}" BorderBrush="Black"/>
+        <Label x:Name="label_image" Content="Изображение" HorizontalAlignment="Left" Margin="432,109,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
 
     </Grid>
 

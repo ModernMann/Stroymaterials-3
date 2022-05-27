@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Страница Регистрации" Height="450" Width="800">
 
-    <Grid x:Name="grid_registration" Height="450" Width="800" Background="#FFCFE6E0">
+    <Grid x:Name="grid_registration" Height="450" Width="800" Background="White">
         <Label x:Name="text_firstname" Content="Введите имя " HorizontalAlignment="Left" Margin="29,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="130" Height="35"/>
         <Label x:Name="text_lastname" Content="Фамилию " HorizontalAlignment="Left" Margin="164,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
         <Label x:Name="text_middlename" Content="Отчество" HorizontalAlignment="Left" Margin="344,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
@@ -26,8 +26,8 @@
         <PasswordBox x:Name="label_password" HorizontalAlignment="Left" Margin="29,303,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15"/>
         <PasswordBox x:Name="label_password_rep" HorizontalAlignment="Left" Margin="30,355,0,0" VerticalAlignment="Top" Width="235" Height="25" PasswordChanged="label_password_rep_PasswordChanged" FontSize="15"/>
         <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="35"/>
-        <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click"/>
-        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click"/>
+        <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_create_Click" Foreground="Black" BorderBrush="Black" Background="{x:Null}" IsEnabled="False"/>
+        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click" Foreground="Black" BorderBrush="Black" Background="{x:Null}"/>
         <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15"/>
     </Grid>
 </Page>

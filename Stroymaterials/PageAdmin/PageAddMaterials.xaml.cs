@@ -81,7 +81,6 @@ namespace Stroymaterials.PageAdmin
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 var userObj = listview_materials.SelectedItems.Cast<Materials>().ToList();
-
                 try
                 {
                     StorymaterialsEntities1.GetContext().Materials.RemoveRange(userObj);
