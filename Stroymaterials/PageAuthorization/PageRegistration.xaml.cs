@@ -25,6 +25,7 @@ namespace Stroymaterials.PageAuthorization
         public PageRegistration()
         {
             InitializeComponent();
+            label_firstname.Focus();
             
         }
 

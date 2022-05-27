@@ -26,6 +26,7 @@ namespace Stroymaterials.PageAdmin
         public PageAddUser()
         {
             InitializeComponent();
+            label_firstname.Focus();
         }
         public PageAddUser(Users id_users)
         {

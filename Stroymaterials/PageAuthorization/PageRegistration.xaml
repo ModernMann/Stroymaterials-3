@@ -9,25 +9,25 @@
       Title="Страница Регистрации" Height="450" Width="800">
 
     <Grid x:Name="grid_registration" Height="450" Width="800" Background="#FFCFE6E0">
-        <Label x:Name="text_firstname" Content="Введите имя " HorizontalAlignment="Left" Margin="29,15,0,0" VerticalAlignment="Top" FontSize="20" Width="130" Height="40"/>
-        <Label x:Name="text_lastname" Content="Введите фамилию " HorizontalAlignment="Left" Margin="193,15,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="40"/>
-        <Label x:Name="text_middlename" Content="Введите отчество" HorizontalAlignment="Left" Margin="404,15,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="40"/>
-        <TextBox x:Name="label_firstname" HorizontalAlignment="Left" Height="40" Margin="29,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="20"/>
-        <TextBox x:Name="label_lastname" HorizontalAlignment="Left" Height="40" Margin="193,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" FontSize="20"/>
-        <TextBox x:Name="label_middlename" HorizontalAlignment="Left" Height="40" Margin="404,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="20"/>
-        <Label x:Name="text_phone" Content="Введите телефон" HorizontalAlignment="Left" Margin="562,109,0,0" VerticalAlignment="Top" FontSize="20" Width="170" Height="40"/>
-        <TextBox x:Name="label_phone" HorizontalAlignment="Left" Height="40" Margin="562,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontSize="20" SelectionChanged="label_phone_SelectionChanged" LostFocus="label_phone_LostFocus"/>
-        <Label x:Name="text_datebirth" Content="Введите дату рождения" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="20" Width="233" Height="40"/>
-        <Label x:Name="text_mail" Content="Введите почту" HorizontalAlignment="Left" Margin="294,109,0,0" VerticalAlignment="Top" FontSize="20" Width="235" Height="40"/>
-        <TextBox x:Name="label_mail" HorizontalAlignment="Left" Height="40" Margin="294,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="20"/>
-        <Label x:Name="text_login" Content="Введите логин" HorizontalAlignment="Left" Margin="29,200,0,0" VerticalAlignment="Top" FontSize="20" Width="190" Height="40"/>
-        <TextBox x:Name="label_login" HorizontalAlignment="Left" Height="40" Margin="29,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="20"/>
-        <Label x:Name="text_password" Content="Введите пароль" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" FontSize="20" Width="189" Height="40"/>
-        <PasswordBox x:Name="label_password" HorizontalAlignment="Left" Margin="250,245,0,0" VerticalAlignment="Top" Width="210" Height="40"/>
-        <PasswordBox x:Name="label_password_rep" HorizontalAlignment="Left" Margin="488,245,0,0" VerticalAlignment="Top" Width="210" Height="40" PasswordChanged="label_password_rep_PasswordChanged"/>
-        <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="489,200,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="40"/>
-        <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="250,321,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click"/>
-        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="404,321,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click"/>
-        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,155,0,0" VerticalAlignment="Top" Width="235" Height="39" FontSize="25"/>
+        <Label x:Name="text_firstname" Content="Введите имя " HorizontalAlignment="Left" Margin="29,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="130" Height="35"/>
+        <Label x:Name="text_lastname" Content="Фамилию " HorizontalAlignment="Left" Margin="164,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
+        <Label x:Name="text_middlename" Content="Отчество" HorizontalAlignment="Left" Margin="344,-2,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
+        <TextBox x:Name="label_firstname" HorizontalAlignment="Left" Height="25" Margin="29,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="15"/>
+        <TextBox x:Name="label_lastname" HorizontalAlignment="Left" Height="25" Margin="164,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" FontSize="15"/>
+        <TextBox x:Name="label_middlename" HorizontalAlignment="Left" Height="25" Margin="350,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="15"/>
+        <Label x:Name="text_phone" Content="Телефон" HorizontalAlignment="Left" Margin="30,161,0,0" VerticalAlignment="Top" FontSize="20" Width="170" Height="35"/>
+        <TextBox x:Name="label_phone" HorizontalAlignment="Left" Height="25" Margin="30,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="20" SelectionChanged="label_phone_SelectionChanged" LostFocus="label_phone_LostFocus"/>
+        <Label x:Name="text_datebirth" Content="Дату рождения" HorizontalAlignment="Left" Margin="29,53,0,0" VerticalAlignment="Top" FontSize="20" Width="233" Height="35"/>
+        <Label x:Name="text_mail" Content="Почту" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="20" Width="235" Height="35"/>
+        <TextBox x:Name="label_mail" HorizontalAlignment="Left" Height="25" Margin="29,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" RenderTransformOrigin="0.111,1.515"/>
+        <Label x:Name="text_login" Content="Логин" HorizontalAlignment="Left" Margin="30,214,0,0" VerticalAlignment="Top" FontSize="20" Width="190" Height="35"/>
+        <TextBox x:Name="label_login" HorizontalAlignment="Left" Height="25" Margin="30,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15"/>
+        <Label x:Name="text_password" Content="Пароль" HorizontalAlignment="Left" Margin="29,266,0,0" VerticalAlignment="Top" FontSize="20" Width="189" Height="35"/>
+        <PasswordBox x:Name="label_password" HorizontalAlignment="Left" Margin="29,303,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15"/>
+        <PasswordBox x:Name="label_password_rep" HorizontalAlignment="Left" Margin="30,355,0,0" VerticalAlignment="Top" Width="235" Height="25" PasswordChanged="label_password_rep_PasswordChanged" FontSize="15"/>
+        <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="35"/>
+        <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click"/>
+        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click"/>
+        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15"/>
     </Grid>
 </Page>

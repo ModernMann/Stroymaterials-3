@@ -62,10 +62,8 @@ namespace Stroymaterials.PageAdmin
                 text_count.Text = _materials.materials_count.ToString();
                 text_description.Text = _materials.materials_description;
                 text_price.Text = _materials.materials_price.ToString();
-                if (_materials.materials_available == 1) {
-                   // checkbox_yes.IsChecked == true;
-                }
 
+            text_name.Focus();
             
 
         }
