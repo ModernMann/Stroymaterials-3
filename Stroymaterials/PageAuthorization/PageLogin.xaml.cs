@@ -15,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Stroymaterials.AppData;
 namespace Stroymaterials.PageAuthorization
 {
     /// <summary>
@@ -47,13 +46,11 @@ namespace Stroymaterials.PageAuthorization
                     switch (role)
                     {
                         case 1:
-                            MessageBox.Show(userOdj.users_login + " , Вы вошли как пользователь", "Уведомление", MessageBoxButton.OK,
-                            MessageBoxImage.Information);
+                            Flag.flag = userOdj.users_login;
                             AppFrame.frmmain.Navigate(new PageCatalog(role));
                             break;
                         case 2:
-                            MessageBox.Show(userOdj.users_login + " , Вы вошли как менеджер", "Уведомление", MessageBoxButton.OK,
-                            MessageBoxImage.Information);
+                            Flag.flag = userOdj.users_login;
                             break;
                         case 3:
                             Flag.flag= userOdj.users_login;
@@ -79,7 +76,7 @@ namespace Stroymaterials.PageAuthorization
 
         private void button_guest_Click(object sender, RoutedEventArgs e)
         {
-
+            Flag.flag = "Гость";
             AppFrame.frmmain.Navigate(new PageCatalog(4));
 
         }

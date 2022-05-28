@@ -1,18 +1,26 @@
-﻿<Window x:Class="Stroymaterials.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stroymaterials"
+        xmlns:AppData="clr-namespace:Stroymaterials.AppData" x:Class="Stroymaterials.MainWindow"
         mc:Ignorable="d"
         Title="Стройматериалы" Height="600" Width="800">
+
     <Grid x:Name="grid_main" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="150*"/>
             <RowDefinition Height="450*"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Left" Height="427" VerticalAlignment="Top" Width="792" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Center" Height="438" VerticalAlignment="Center" Width="802" Grid.Row="1" NavigationUIVisibility="Hidden"/>
         <Image HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="382" Source="masterskaya.png" Margin="39,0,0,0"/>
+        <Label x:Name="label_welcome" Content="Вы вошли как: " HorizontalAlignment="Left" Margin="524,36,0,0" VerticalAlignment="Top" Height="37" Width="208" FontSize="25"/>
+        <Label x:Name="text_welcome" Content="{Binding Path=flag}" HorizontalAlignment="Left" Margin="524,73,0,0" VerticalAlignment="Top" Height="37" Width="208" FontSize="25">
+            <Label.DataContext>
+                <AppData:Flag/>
+            </Label.DataContext>
+        </Label>
     </Grid>
 
 </Window>
