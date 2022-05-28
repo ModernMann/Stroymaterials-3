@@ -67,7 +67,16 @@ namespace Stroymaterials.PageMenu
         }
         public PageCatalog( int role)
         {
-            
+            //Application.Current.MainWindow.Title = "hjkhk";
+            //foreach (FrameworkElement txt in Application.Current.Windows)
+            //{
+            //    if (txt is Label)
+                    // window.Background = new SolidColorBrush(Colors.Red);
+
+                    // если окно - объект TaskWindow
+            //        if (txt.Name == "text_welcome")
+              //          MessageBox.Show("dfgd");
+            //}
             InitializeComponent();
             SetPriceMaterials();
             SetMakerMaterials();

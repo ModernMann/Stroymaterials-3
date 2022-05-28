@@ -24,11 +24,23 @@ namespace Stroymaterials
     {
         public MainWindow()
         {
+            Flag.flag = ".";
             InitializeComponent();
+            label_welcome.Visibility = Visibility.Hidden;
             AppConnect.model0db = new StorymaterialsEntities1();
             AppFrame.frmmain = main_frame;
             main_frame.Navigate(new PageLogin());
-            
+
+            //if (Flag.flag == null)
+            //{
+            //    label_welcome.Visibility = Visibility.Hidden;
+            //}
+            //else
+            //{
+            //    label_welcome.Visibility = Visibility.Visible;
+                text_welcome.Content = Flag.flag.ToString();
+            //}
+
         }
     }
 }
