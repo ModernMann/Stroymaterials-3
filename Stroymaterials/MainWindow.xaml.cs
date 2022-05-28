@@ -38,7 +38,7 @@ namespace Stroymaterials
             //else
             //{
             //    label_welcome.Visibility = Visibility.Visible;
-                text_welcome.Content = Flag.flag.ToString();
+            text_welcome.Content = Flag.flag.ToString();
             //}
 
         }
