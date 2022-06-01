@@ -1,9 +1,10 @@
-﻿<Page x:Class="Stroymaterials.PageAdmin.PageAddUser"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Stroymaterials.PageAdmin"
+      xmlns:AppData="clr-namespace:Stroymaterials.AppData" x:Class="Stroymaterials.PageAdmin.PageAddUser"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="800"
       Title="PageAddUser">
@@ -20,7 +21,7 @@
         <TextBox x:Name="label_phone" HorizontalAlignment="Left" Height="25" Margin="30,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="20" SelectionChanged="label_phone_SelectionChanged" LostFocus="label_phone_LostFocus" SelectionBrush="Black"/>
         <Label x:Name="text_datebirth" Content="Дату рождения" HorizontalAlignment="Left" Margin="29,53,0,0" VerticalAlignment="Top" FontSize="20" Width="233" Height="35"/>
         <Label x:Name="text_mail" Content="Почту" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="20" Width="235" Height="35"/>
-        <TextBox x:Name="label_mail" HorizontalAlignment="Left" Height="25" Margin="29,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" RenderTransformOrigin="0.111,1.515" SelectionBrush="Black"/>
+        <TextBox x:Name="label_mail" HorizontalAlignment="Left" Height="25" Margin="29,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" RenderTransformOrigin="0.111,1.515" SelectionBrush="Black" LostFocus="label_mail_LostFocus"/>
         <Label x:Name="text_login" Content="Логин" HorizontalAlignment="Left" Margin="30,214,0,0" VerticalAlignment="Top" FontSize="20" Width="190" Height="35"/>
         <TextBox x:Name="label_login" HorizontalAlignment="Left" Height="25" Margin="30,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" SelectionBrush="Black"/>
         <Label x:Name="text_password" Content="Пароль" HorizontalAlignment="Left" Margin="29,266,0,0" VerticalAlignment="Top" FontSize="20" Width="189" Height="35"/>
@@ -29,7 +30,14 @@
         <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="35"/>
         <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
         <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
-        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15"/>
+        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" LostFocus="label_datebirth_LostFocus"/>
+
+        <ComboBox x:Name="combobox_roles" HorizontalAlignment="Left" Margin="538,32,0,0"  VerticalAlignment="Top" Width="174" FontSize="15" Foreground="#FF4D766B">
+            <ComboBox.DataContext>
+                <AppData:Makers/>
+            </ComboBox.DataContext>
+        </ComboBox>
+        <Label x:Name="text_roles" Content="Роль" HorizontalAlignment="Left" Margin="535,0,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
 
     </Grid>
 </Page>

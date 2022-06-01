@@ -67,11 +67,11 @@ namespace Stroymaterials.PageAdmin
 
         private void button_edit_Click(object sender, RoutedEventArgs e)
         {
-            try
+            
+            var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
+            Users users = new Users()
             {
-                var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
-                Users users = new Users()
-                {
+                    id_users = userObj.id_users,
                     users_firstname = userObj.users_firstname,
                     users_middlename = userObj.users_middlename,
                     users_lastname = userObj.users_lastname,
@@ -81,26 +81,29 @@ namespace Stroymaterials.PageAdmin
                     users_login = userObj.users_login,
                     users_password = userObj.users_password,
                     users_role = userObj.users_role
-                };
-                var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();
+            };
+            AppFrame.frmmain.Navigate(new PageAddUser(userObj,true,userObj));
 
-                try
-                {
-                    StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj2);
-                    StorymaterialsEntities1.GetContext().SaveChanges();
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-                AppFrame.frmmain.Navigate(new PageAddUser(users));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            
+            //    var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();
+
+            //    try
+            //    {
+            //        //StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj2);
+            //        StorymaterialsEntities1.GetContext().SaveChanges();
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message.ToString());
+            //    }
+            //    AppFrame.frmmain.Navigate(new PageAddUser(users));
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
+
         }
 
         private void button_materials_Click(object sender, RoutedEventArgs e)

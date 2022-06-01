@@ -240,5 +240,7 @@ namespace Stroymaterials.PageAdmin
             DataContext = _materials;
             namephoto = _materials.materials_photo;
         }
+
+        
     }
 }
