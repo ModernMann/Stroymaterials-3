@@ -71,11 +71,11 @@ namespace Stroymaterials.PageMenu
             //foreach (FrameworkElement txt in Application.Current.Windows)
             //{
             //    if (txt is Label)
-                    // window.Background = new SolidColorBrush(Colors.Red);
+            //         Window.Background = new SolidColorBrush(Colors.Red);
 
-                    // если окно - объект TaskWindow
+            //         если окно - объект TaskWindow
             //        if (txt.Name == "text_welcome")
-              //          MessageBox.Show("dfgd");
+            //            MessageBox.Show("dfgd");
             //}
             InitializeComponent();
             SetPriceMaterials();

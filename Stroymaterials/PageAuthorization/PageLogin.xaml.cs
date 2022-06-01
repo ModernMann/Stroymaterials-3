@@ -35,6 +35,7 @@ namespace Stroymaterials.PageAuthorization
             login_label.Focus();
             frame_captcha.Height = 0;
             
+            
         }
 
         private void timerTick(object sender, EventArgs e) => button_enter.IsEnabled = true;

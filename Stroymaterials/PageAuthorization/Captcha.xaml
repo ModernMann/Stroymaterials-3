@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Stroymaterials.PageAuthorization"
       mc:Ignorable="d" 
-      d:DesignHeight="112" d:DesignWidth="225"
+      d:DesignHeight="130" d:DesignWidth="280"
       Title="Captcha">
 
-    <Grid Width="225">
-        <Label x:Name="label_captcha" Content="" HorizontalAlignment="Left" Width="180" Padding="0" VerticalContentAlignment="Center" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="32"  Height="54" HorizontalContentAlignment="Center" Foreground="Gray" Margin="14,11,0,0">
+    <Grid Width="280">
+        <Label x:Name="label_captcha" Content="" HorizontalAlignment="Left" Width="140" Padding="0" VerticalContentAlignment="Center" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="32"  Height="54" HorizontalContentAlignment="Center" Foreground="Gray" Margin="14,11,0,0">
             <Label.Background>
                 <ImageBrush ImageSource="/PageAuthorization/hatch.png"/>
             </Label.Background>
         </Label>
         <TextBox x:Name="text_capctha" HorizontalAlignment="Left" FontSize="20" Margin="14,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontFamily="Segoe Print" Height="32"/>
-        <Button x:Name="button_generate" Content="0" HorizontalAlignment="Left" Margin="162,70,0,0" VerticalAlignment="Top" Width="32" Height="32" RenderTransformOrigin="5.667,-1.2" Click="button_generate_Click"/>
+        <Button x:Name="button_generate" Content="Сгенерировать" HorizontalAlignment="Left" Margin="160,22,0,0" VerticalAlignment="Top" Width="113" Height="32" RenderTransformOrigin="5.667,-1.2" Click="button_generate_Click"/>
 
     </Grid>
 </Page>
