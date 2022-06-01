@@ -9,9 +9,9 @@ namespace Stroymaterials.AppData
 {
     public partial class Materials
     {
-        public string CorrectImage 
+        public string CorrectImage
         {
-            get 
+            get
             {
                 if (String.IsNullOrEmpty(materials_photo) || String.IsNullOrWhiteSpace(materials_photo))
                 {

@@ -147,6 +147,7 @@
     <Compile Include="AppData\Users.cs">
       <DependentUpon>ModelStorymaterialsEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="CaptchaNamespace\Captcha.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -168,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageAdmin\Page_Users.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageAuthorization\Captcha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +204,9 @@
     </Compile>
     <Compile Include="PageAdmin\Page_Users.xaml.cs">
       <DependentUpon>Page_Users.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageAuthorization\Captcha.xaml.cs">
+      <DependentUpon>Captcha.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageAuthorization\PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
@@ -243,7 +251,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\BPV4MM.jpg" />
+    <Resource Include="Resources\field_image_38.jpg" />
+    <Resource Include="PageAuthorization\hatch.png" />
+    <Resource Include="hatch.png" />
     <Resource Include="Resources\mobi-met-regatta-600-0-2-4.jpg" />
     <Resource Include="Resources\img\picture.jpg" />
     <Resource Include="Resources\PMEZMH.jpg" />

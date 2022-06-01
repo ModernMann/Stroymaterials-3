@@ -13,10 +13,11 @@
         <PasswordBox x:Name="password_label" HorizontalAlignment="Left" Margin="196,159,0,0" VerticalAlignment="Top" Width="255" Height="30" FontSize="20" Background="{x:Null}" Foreground="Red" FontWeight="Bold" SelectionBrush="#FFAB0303" BorderBrush="Black"/>
         <Label x:Name="login_text" Content="Введите логин" HorizontalAlignment="Left" Margin="196,51,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" Foreground="Black"/>
         <Label x:Name="password_text" Content="Введите пароль" HorizontalAlignment="Left" Margin="196,124,0,0" VerticalAlignment="Top" Width="200" Height="33" FontSize="20" Foreground="Black" Background="White"/>
-        <Button x:Name="button_enter" Content="Войти" HorizontalAlignment="Left" Margin="196,204,0,0" VerticalAlignment="Top" Width="255" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_enter_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black"/>
-        <Button x:Name="button_registration" Content="Регистрация" HorizontalAlignment="Left" Margin="196,260,0,0" VerticalAlignment="Top" Width="90" Height="25" FontSize="15" Click="button_registration_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
-        <Button x:Name="button_guest" Content="Продолжить как гость" HorizontalAlignment="Left" Height="25" Margin="291,260,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="button_guest_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
-        <Label x:Name="lable_del" Content="|" HorizontalAlignment="Left" Margin="281,254,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Foreground="#FFAB0303"/>
+        <Button x:Name="button_enter" Content="Войти" HorizontalAlignment="Left" Margin="196,311,0,0" VerticalAlignment="Top" Width="255" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_enter_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black"/>
+        <Button x:Name="button_registration" Content="Регистрация" HorizontalAlignment="Left" Margin="196,367,0,0" VerticalAlignment="Top" Width="90" Height="25" FontSize="15" Click="button_registration_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
+        <Button x:Name="button_guest" Content="Продолжить как гость" HorizontalAlignment="Left" Height="25" Margin="291,367,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="button_guest_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFAB0303"/>
+        <Label x:Name="lable_del" Content="|" HorizontalAlignment="Left" Margin="281,361,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Foreground="#FFAB0303"/>
+        <Frame x:Name="frame_captcha" Content="" Margin="196,194,189,94"/>
 
     </Grid>
 </Page>

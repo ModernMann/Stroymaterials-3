@@ -20,14 +20,34 @@ namespace Stroymaterials.PageAuthorization
     /// <summary>
     /// Логика взаимодействия для PageLogin.xaml
     /// </summary>
+    
+    
     public partial class PageLogin : Page
     {
         public int role;
-        
+        public bool countFail = true;
+        Captcha captcha = new CaptchaNamespace.Captcha();
+        System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+
         public PageLogin()
         {
             InitializeComponent();
             login_label.Focus();
+            frame_captcha.Height = 0;
+            
+        }
+
+        private void timerTick(object sender, EventArgs e) => button_enter.IsEnabled = true;
+
+        private void Timer()
+        {
+
+            button_enter.IsEnabled = false;
+            countFail = false;
+
+            timer.Tick += new EventHandler(timerTick);
+            timer.Interval = new TimeSpan(0, 0, 10);
+            timer.Start();
         }
 
         private void button_enter_Click(object sender, RoutedEventArgs e)
@@ -36,15 +56,42 @@ namespace Stroymaterials.PageAuthorization
             {
                 var userOdj = AppConnect.model0db.Users.FirstOrDefault(x => x.users_login == login_label.Text
                 && x.users_password == password_label.Password);
-                role = userOdj.users_role;
+                if (countFail && userOdj == null)
+                {
+                    frame_captcha.Height = 112;
+                    AppFrame.frameCaptcha = frame_captcha;
+                    frame_captcha.Navigate(new Captcha());
+                    MessageBox.Show("Вы неправильно ввели данные! Введите капчу и повторите через 10 секунд!", "Ошибка при авторизации!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Timer();
+
+                    return;
+                }
+
                 if (userOdj == null)
                 {
-                    MessageBox.Show("Такого пользователя нет!", "Ошибка при авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    frame_captcha.Height = 112;
+                    AppFrame.frameCaptcha = frame_captcha;
+                    frame_captcha.Navigate(new Captcha());
+                    MessageBox.Show("Вы неправильно ввели данные! Введите капчу и повторите через 10 секунд!", "Ошибка при авторизации!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Timer();
+                    return;
+                }
+                if (!countFail && userOdj != null)
+                {
+                    if (captcha.Access(countFail)) countFail = true;
+                    else
+                    {
+                        captcha.wrongAccess();
+                        Timer();
+                        return;
+                    }
                 }
                 else
                 {
+                    role = userOdj.users_role;
                     switch (role)
                     {
+                        
                         case 1:
                             Flag.flag = userOdj.users_login;
                             AppFrame.frmmain.Navigate(new PageCatalog(role));

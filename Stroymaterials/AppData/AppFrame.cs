@@ -10,6 +10,7 @@ namespace Stroymaterials.AppData
     class AppFrame
     {
         public static Frame frmmain;
+        public static Frame frameCaptcha;
         
     }
 }

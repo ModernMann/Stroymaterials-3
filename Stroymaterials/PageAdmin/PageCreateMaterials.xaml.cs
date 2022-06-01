@@ -228,13 +228,13 @@ namespace Stroymaterials.PageAdmin
             string directory;
             directory = dialog.FileName.Substring(dialog.FileName.LastIndexOf('\\'), dialog.FileName.Length - dialog.FileName.Substring(0, dialog.FileName.LastIndexOf('\\')).Length);
 
-            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\img\\" + directory))
+            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory))
             {
-                File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\img\\" + directory);
+                File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory);
             }
 
-            File.Copy(dialog.FileName, System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\img\\" + directory);
-            _materials.materials_photo = dialog.SafeFileName;
+            File.Copy(dialog.FileName, System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\" + directory);
+            _materials.materials_photo = "/Recources/img/" + dialog.SafeFileName;
             AppConnect.model0db.SaveChanges();
             DataContext = null;
             DataContext = _materials;
