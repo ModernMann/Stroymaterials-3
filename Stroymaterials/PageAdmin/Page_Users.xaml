@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Stroymaterials.PageAdmin"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="640"
       Title="Page_Users" Width="640" Height="400">
 
-    <Grid x:Name="grid_page_users" Width="640" Height="400" Margin="2,0,-2,-1">
-        <ListView x:Name="listview_users" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="640" Background="{x:Null}" Foreground="Black">
+    <Grid x:Name="grid_page_users" Width="640" Height="400" >
+        <ListView x:Name="listview_users" HorizontalAlignment="Center" Height="230" VerticalAlignment="Top" Width="640" Background="{x:Null}" Foreground="Black" Margin="0,35,0,0" BorderBrush="#FFAB0303">
             <ListView.View>
                 <GridView x:Name="gr" >
                     <GridView.Columns >
@@ -28,11 +28,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button_add" Content="Добавить" HorizontalAlignment="Left" Height="40" Margin="225,270,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_add_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
-        <Button x:Name="button_edit" Content="Изменить" HorizontalAlignment="Left" Height="40" Margin="365,270,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_edit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
-        <Button x:Name="button_del" Content="Удалить" HorizontalAlignment="Left" Height="40" Margin="505,270,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_del_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
-        <Button x:Name="button_materials" Content="Товары" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_materials_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
-        <Button x:Name="button_exit" Content="Выход" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_exit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_add" Content="Добавить" HorizontalAlignment="Left" Height="40" Margin="225,306,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_add_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_edit" Content="Изменить" HorizontalAlignment="Left" Height="40" Margin="365,306,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_edit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_del" Content="Удалить" HorizontalAlignment="Left" Height="40" Margin="505,306,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_del_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_materials" Content="Товары" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_materials_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_exit" Content="Выход" HorizontalAlignment="Left" Margin="10,336,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_exit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <TextBox x:Name="textbox_search" HorizontalAlignment="Left" Height="25" Margin="140,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15" BorderBrush="#FFABADB3" Background="{x:Null}" Foreground="Black" FontWeight="Bold" SelectionChanged="textbox_search_SelectionChanged"/>
+        <Label x:Name="label_search" Content="Поиск по фамилии" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,-0.343" FontWeight="Bold" Foreground="#FFAB0303"/>
 
 
     </Grid>

@@ -23,6 +23,7 @@ namespace Stroymaterials.PageMenu
     /// </summary>
     public partial class PageCatalog : Page
     {
+        
         Materials[] FindMaterials()
         {
             List<Materials> materials = AppConnect.model0db.Materials.ToList();
@@ -45,13 +46,14 @@ namespace Stroymaterials.PageMenu
             {
                 materials = materials.Where(x => x.Makers.makers_name == combosort_maker.SelectedItem.ToString()).ToList();
             }
+
             if (materials.Count > 0)
             {
-                label_material_list.Content = "Найдено " + materials.Count.ToString() + " из " + materialsAll.Count.ToString();
+                label_material_list.Text = "Найдено " + materials.Count.ToString() + " из " + materialsAll.Count.ToString();
             }
             else
             {
-                label_material_list.Content = "Элементы не найдены";
+                label_material_list.Text = "Элементы не найдены";
             }
 
             return materials.ToArray();
@@ -89,6 +91,7 @@ namespace Stroymaterials.PageMenu
             InitializeComponent();
             SetPriceMaterials();
             SetMakerMaterials();
+            listbox_catalog.ItemsSource = FindMaterials();
             switch (role)
             {
                 case 1:
@@ -126,53 +129,26 @@ namespace Stroymaterials.PageMenu
 
         private void combosort_price_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentMaterials = StorymaterialsEntities1.GetContext().Materials.ToList();
-            switch (combosort_price.SelectedIndex) {
-
-                case 1:
-                    currentMaterials = currentMaterials.OrderBy(x => x.materials_price).ToList();
-                    break;
-                case 2:
-                    currentMaterials = currentMaterials.OrderByDescending(x => x.materials_price).ToList();
-                    break;
-                default:
-                    currentMaterials = currentMaterials.OrderBy(x => x.materials_name).ToList();
-                    break;
-            }
-            listbox_catalog.ItemsSource = currentMaterials.ToList();
+            listbox_catalog.ItemsSource = FindMaterials();
         }
 
         private void textbox_search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var currentMaterials = StorymaterialsEntities1.GetContext().Materials.ToList();
-            currentMaterials = currentMaterials.Where(x => x.materials_name.ToLower().Contains(textbox_search.Text.ToLower())).ToList();
-            listbox_catalog.ItemsSource = currentMaterials.OrderBy(x => x.materials_name).ToList();
+            listbox_catalog.ItemsSource = FindMaterials();
         }
 
         private void combosort_maker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentMaterials = StorymaterialsEntities1.GetContext().Materials.ToList();
-            switch (combosort_maker.SelectedIndex)
-            {
-
-                case 0:
-                    currentMaterials = currentMaterials.OrderBy(x => x.materials_name).ToList();
-                    break;
-                case 1:
-                    currentMaterials = currentMaterials.Where(x => x.materials_makers == 1).ToList();
-                    break;
-                case 2:
-                    currentMaterials = currentMaterials.Where(x => x.materials_makers == 2).ToList();
-                    break;
-                case 3:
-                    currentMaterials = currentMaterials.Where(x => x.materials_makers == 3).ToList();
-                    break;
-                default:
-                    currentMaterials = currentMaterials.OrderBy(x => x.materials_name).ToList();
-                    break;
-            }
-            listbox_catalog.ItemsSource = currentMaterials.ToList();
+            listbox_catalog.ItemsSource = FindMaterials();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            AppConnect.model0db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            listbox_catalog.ItemsSource = FindMaterials();
+        }
+
+        
     }
     }
 

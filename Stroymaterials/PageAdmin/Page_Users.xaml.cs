@@ -92,24 +92,7 @@ namespace Stroymaterials.PageAdmin
             }
 
 
-            //    var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();
-
-            //    try
-            //    {
-            //        //StorymaterialsEntities1.GetContext().Users.RemoveRange(userObj2);
-            //        StorymaterialsEntities1.GetContext().SaveChanges();
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message.ToString());
-            //    }
-            //    AppFrame.frmmain.Navigate(new PageAddUser(users));
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message.ToString());
-            //}
+            
 
         }
 
@@ -121,6 +104,13 @@ namespace Stroymaterials.PageAdmin
         private void button_exit_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.frmmain.Navigate(new PageLogin());
+        }
+
+        private void textbox_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            List<Users> _users = AppConnect.model0db.Users.ToList();
+            _users = _users.Where(x => x.users_lastname.ToLower().Contains(textbox_search.Text.ToLower())).ToList();
+            listview_users.ItemsSource = _users;
         }
     }
 }

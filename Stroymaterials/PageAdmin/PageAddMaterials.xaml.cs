@@ -105,5 +105,12 @@ namespace Stroymaterials.PageAdmin
         {
             AppFrame.frmmain.Navigate(new PageLogin());
         }
+
+        private void textbox_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            List<Materials> _materials = AppConnect.model0db.Materials.ToList();
+            _materials = _materials.Where(x => x.materials_name.ToLower().Contains(textbox_search.Text.ToLower())).ToList();
+            listview_materials.ItemsSource = _materials;
+        }
     }
 }

@@ -10,11 +10,11 @@
 
     <Grid x:Name="grid_main" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150*"/>
-            <RowDefinition Height="450*"/>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="465*"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Center" Height="438" VerticalAlignment="Center" Width="802" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-        <Image HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="382" Source="masterskaya.png" Margin="39,0,0,0"/>
+        <Frame x:Name="main_frame" Content="" HorizontalAlignment="Center" Height="465" VerticalAlignment="Top" Width="800" NavigationUIVisibility="Hidden" Margin="0,119,0,0" Grid.RowSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="361" Source="masterskaya.png" Margin="39,0,0,0"/>
         <Label x:Name="label_welcome" Content="Вы вошли как: " HorizontalAlignment="Left" Margin="524,36,0,0" VerticalAlignment="Top" Height="37" Width="208" FontSize="25"/>
         <Label x:Name="text_welcome" Content="{Binding Path=flag}" HorizontalAlignment="Left" Margin="524,73,0,0" VerticalAlignment="Top" Height="37" Width="208" FontSize="25">
             <Label.DataContext>
