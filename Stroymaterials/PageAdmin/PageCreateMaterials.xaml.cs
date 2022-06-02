@@ -24,10 +24,20 @@ namespace Stroymaterials.PageAdmin
     public partial class PageCreateMaterials : Page
     {
         private Materials _materials = new Materials();
-        private string namephoto;
-        public PageCreateMaterials(Materials material) 
+        bool shouldUpdate;
+        Materials material;
+        Materials newMaterial;
+        Materials updateMaterial;
+
+
+        public PageCreateMaterials(Materials material, bool shouldUpdate, Materials updatematerial = null) 
         {
-            
+            this.shouldUpdate = shouldUpdate;
+            this.material = material;
+            this.updateMaterial = updatematerial;
+
+
+
             InitializeComponent();
             text_name.Focus();
             foreach (var item in AppConnect.model0db.Category.ToList())
@@ -42,33 +52,42 @@ namespace Stroymaterials.PageAdmin
             {
                 combobox_makers.Items.Add(item.makers_name);
             }
+
             _materials = material;
             FindFilterMatCategory();
             FindFilterMatMaker();
             FindFilterMatProvider();
-            if (material != null)
-            {
-                FindFilterCategoryMat();
-                FindFilterMakerMat();
-                FindFilterProviderMat();
-            }
-            else
+
+
+            if (material == null)
             {
                 combobox_category.SelectedIndex = 0;
                 combobox_provider.SelectedIndex = 0;
                 combobox_makers.SelectedIndex = 0;
             }
             
-                text_name.Text = _materials.materials_name;
-                text_units.Text = _materials.materials_units;
-                text_count.Text = _materials.materials_count.ToString();
-                text_description.Text = _materials.materials_description;
-                text_price.Text = _materials.materials_price.ToString();
 
-            
-            
+            if (shouldUpdate)
+            {
+                text_name.Text = updateMaterial.materials_name;
+                text_price.Text = updateMaterial.materials_price.ToString();
+                text_units.Text = updateMaterial.materials_units;
+                text_count.Text = updateMaterial.materials_count.ToString();
+                text_description.Text = updateMaterial.materials_description;
+                FindFilterCategoryMat();
+                FindFilterMakerMat();
+                FindFilterProviderMat();
+            }
+            else
+            {
+                
+                newMaterial = new Materials();
+            }
+
+                
 
         }
+
 
         private void FindFilterMatProvider()
         {
@@ -112,32 +131,8 @@ namespace Stroymaterials.PageAdmin
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                
-                    Materials userObj = new Materials()
-                {
-                    materials_name = text_name.Text,
-                    materials_units = text_units.Text,
-                    materials_count = Convert.ToInt32(text_count.Text),
-                    materials_price = Convert.ToInt32(text_price.Text),
-                    materials_providers = _materials.materials_providers,
-                    materials_makers = _materials.materials_makers,
-                    materials_category = _materials.materials_category,
-                    materials_description = text_description.Text,
-                    materials_available = 1,
-                    materials_photo = "авпвапв"
-                };
-                AppConnect.model0db.Materials.Add(userObj);
-                AppConnect.model0db.SaveChanges();
-                StorymaterialsEntities1.GetContext().SaveChanges();
-                AppFrame.frmmain.Navigate(new PageAddMaterials());
-            }
-            catch
-            {
-                AppFrame.frmmain.Navigate(new PageAddMaterials());
-            }
-            
+            AppFrame.frmmain.Navigate(new PageAddMaterials());
+
         }
 
         private void button_save_Click(object sender, RoutedEventArgs e)
@@ -145,38 +140,55 @@ namespace Stroymaterials.PageAdmin
             FindFilterCategoryMat();
             FindFilterMakerMat();
             FindFilterProviderMat();
-            
-            
-            if (AppConnect.model0db.Materials.Count(x => x.materials_name == text_name.Name) > 0)
+
+
+            if (shouldUpdate)
             {
-                MessageBox.Show("Товар с таким наименованием есть!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-            try
-            {
-                Materials userObj = new Materials()
-                {
-                    materials_name = text_name.Text,
-                    materials_units = text_units.Text,
-                    materials_count = Convert.ToInt32(text_count.Text),
-                    materials_price = Convert.ToInt32(text_price.Text),
-                    materials_providers = _materials.materials_providers,
-                    materials_makers = _materials.materials_makers,
-                    materials_category = _materials.materials_category,
-                    materials_description = text_description.Text,
-                    materials_photo = namephoto,
-                    materials_available = 1
-                };
-                AppConnect.model0db.Materials.Add(userObj);
-                AppConnect.model0db.SaveChanges();
-                MessageBox.Show("Данные успешно добавлены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                StorymaterialsEntities1.GetContext().SaveChanges();
+                localUpdateMaterials(material);
+                updateMaterials();
+                MessageBox.Show("Изменения сохранены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 AppFrame.frmmain.Navigate(new PageAddMaterials());
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ошибка при добавление данных!" + ex.Message, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                localUpdateMaterials(newMaterial);
+                addMaterial();
+                MessageBox.Show("Товар добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                AppFrame.frmmain.Navigate(new PageAddMaterials());
             }
+        }
+
+        private void addMaterial()
+        {
+            StorymaterialsEntities1.GetContext().Materials.Add(newMaterial);
+            StorymaterialsEntities1.GetContext().SaveChanges();
+        }
+
+        private void updateMaterials()
+        {
+            Materials updatedMaterial = StorymaterialsEntities1.GetContext().Materials.Where(x => x.id_materials == updateMaterial.id_materials).SingleOrDefault();
+            updatedMaterial.materials_name = updateMaterial.materials_name;
+            updatedMaterial.materials_count = updateMaterial.materials_count;
+            updatedMaterial.materials_price = updateMaterial.materials_price;
+            updatedMaterial.materials_description = updateMaterial.materials_description;
+            updatedMaterial.materials_units = updateMaterial.materials_units;
+            FindFilterCategoryMat();
+            FindFilterMakerMat();
+            FindFilterProviderMat();
+        }
+
+        private void localUpdateMaterials(Materials material)
+        {
+            material.materials_name = text_name.Text;
+            material.materials_count = Convert.ToInt32(text_count.Text);
+            material.materials_price = Convert.ToDouble(text_price.Text);
+            material.materials_description = text_description.Text;
+            material.materials_units = text_units.Text;
+            FindFilterCategoryMat();
+            FindFilterMakerMat();
+            FindFilterProviderMat();
+
+
         }
 
         private void FindFilterCategoryMat()
@@ -238,7 +250,7 @@ namespace Stroymaterials.PageAdmin
             AppConnect.model0db.SaveChanges();
             DataContext = null;
             DataContext = _materials;
-            namephoto = _materials.materials_photo;
+            
         }
 
         

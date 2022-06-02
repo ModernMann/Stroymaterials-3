@@ -46,7 +46,22 @@ namespace Stroymaterials.PageAdmin
 
 
             InitializeComponent();
-            FindFilterUsersRole();
+            foreach (var roles in AppConnect.model0db.Roles.ToList())
+            {
+                combobox_roles.Items.Add(roles.roles_name);
+            }
+            
+            if (person != null)
+            {
+                
+            }
+            else
+            {
+                combobox_roles.SelectedIndex = 0;
+            }
+            
+
+
             if (!shouldUpdate) {
                 text_roles.Visibility = Visibility.Hidden;
                 combobox_roles.Visibility = Visibility.Hidden;
@@ -123,7 +138,7 @@ namespace Stroymaterials.PageAdmin
             }
             else
             {
-                user.users_role = combobox_roles.SelectedIndex;
+                FindFilterRoleUser();
             }
         }
         private void updateUsers()
@@ -157,7 +172,7 @@ namespace Stroymaterials.PageAdmin
         private void FindFilterUsersRole()
         {
             var typerole = AppConnect.model0db.Roles.FirstOrDefault(x => x.id_roles == user.users_role);
-            combobox_roles.Text = typerole.roles_name;
+            combobox_roles.ItemsSource = typerole.roles_name;
             
         }
         // -------------------------------------------------------------------------------

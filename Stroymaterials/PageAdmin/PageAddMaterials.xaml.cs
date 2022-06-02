@@ -49,8 +49,8 @@ namespace Stroymaterials.PageAdmin
                 var materialObj2 = listview_materials.SelectedItems.Cast<Materials>().ToList();
                 try
                 {
-                    AppFrame.frmmain.Navigate(new PageCreateMaterials(materialObj));
-                    StorymaterialsEntities1.GetContext().Materials.RemoveRange(materialObj2);
+                    AppFrame.frmmain.Navigate(new PageCreateMaterials(materialObj, true, materialObj));
+                    //StorymaterialsEntities1.GetContext().Materials.RemoveRange(materialObj2);
                     StorymaterialsEntities1.GetContext().SaveChanges();
 
                 }
