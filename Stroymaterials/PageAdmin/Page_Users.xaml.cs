@@ -67,10 +67,11 @@ namespace Stroymaterials.PageAdmin
 
         private void button_edit_Click(object sender, RoutedEventArgs e)
         {
-            
-            var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
-            Users users = new Users()
+            try
             {
+                var userObj = listview_users.SelectedItems.Cast<Users>().ToList().ElementAt(0);
+                Users users = new Users()
+                {
                     id_users = userObj.id_users,
                     users_firstname = userObj.users_firstname,
                     users_middlename = userObj.users_middlename,
@@ -81,8 +82,13 @@ namespace Stroymaterials.PageAdmin
                     users_login = userObj.users_login,
                     users_password = userObj.users_password,
                     users_role = userObj.users_role
-            };
-            AppFrame.frmmain.Navigate(new PageAddUser(userObj,true,userObj));
+                };
+                AppFrame.frmmain.Navigate(new PageAddUser(userObj, true, userObj));
+            }
+            catch
+            {
+                MessageBox.Show("Выберите пользователя", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
 
             //    var userObj2 = listview_users.SelectedItems.Cast<Users>().ToList();

@@ -25,12 +25,12 @@
         <Label x:Name="text_login" Content="Логин" HorizontalAlignment="Left" Margin="30,214,0,0" VerticalAlignment="Top" FontSize="20" Width="190" Height="35"/>
         <TextBox x:Name="label_login" HorizontalAlignment="Left" Height="25" Margin="30,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" SelectionBrush="Black"/>
         <Label x:Name="text_password" Content="Пароль" HorizontalAlignment="Left" Margin="29,266,0,0" VerticalAlignment="Top" FontSize="20" Width="189" Height="35"/>
-        <PasswordBox x:Name="label_password" HorizontalAlignment="Left" Margin="29,303,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectionBrush="Black"/>
-        <PasswordBox x:Name="label_password_rep" HorizontalAlignment="Left" Margin="30,355,0,0" VerticalAlignment="Top" Width="235" Height="25" PasswordChanged="label_password_rep_PasswordChanged" FontSize="15" SelectionBrush="Black"/>
+        <PasswordBox x:Name="label_password" HorizontalAlignment="Left" Margin="29,303,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectionBrush="Black" LostFocus="label_password_LostFocus"/>
+        <PasswordBox x:Name="label_password_rep" HorizontalAlignment="Left" Margin="30,355,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectionBrush="Black"/>
         <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="35"/>
         <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
         <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
-        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" LostFocus="label_datebirth_LostFocus"/>
+        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" LostFocus="label_datebirth_LostFocus" SelectedDateChanged="label_datebirth_SelectedDateChanged"/>
 
         <ComboBox x:Name="combobox_roles" HorizontalAlignment="Left" Margin="538,32,0,0"  VerticalAlignment="Top" Width="174" FontSize="15" Foreground="#FF4D766B">
             <ComboBox.DataContext>
@@ -38,6 +38,7 @@
             </ComboBox.DataContext>
         </ComboBox>
         <Label x:Name="text_roles" Content="Роль" HorizontalAlignment="Left" Margin="535,0,0,0" VerticalAlignment="Top" FontSize="20" Width="180" Height="35"/>
+        <Label x:Name="text_password_warning" Content="" HorizontalAlignment="Left" Margin="269,303,0,0" VerticalAlignment="Top" FontSize="15" Width="356" Height="35" Foreground="Red"/>
 
     </Grid>
 </Page>
