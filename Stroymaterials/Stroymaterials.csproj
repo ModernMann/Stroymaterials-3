@@ -258,6 +258,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\picture.jpg" />
     <Resource Include="Resources\field_image_38.jpg" />
     <Resource Include="PageAuthorization\hatch.png" />
     <Resource Include="hatch.png" />
@@ -265,7 +266,6 @@
     <Resource Include="Resources\img\picture.jpg" />
     <Resource Include="Resources\PMEZMH.jpg" />
     <Resource Include="Resources\img\kittens-555822_1920-960x540.jpg" />
-    <Resource Include="Resources\picture.jpg" />
     <Resource Include="masterskaya.png" />
     <Content Include="AppData\ModelStorymaterialsEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
