@@ -1,4 +1,5 @@
 ﻿using Stroymaterials.AppData;
+using Stroymaterials.PageAuthorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,18 +41,17 @@ namespace Stroymaterials.PageAdmin
             this.shouldUpdate = shouldUpdate;
             this.user = user;
             this.updateUser = updateuser;
-            label_firstname.Text = Regex.Replace(label_firstname.Text, "[^a-zA-zА-Яа-я]", "");
-            label_lastname.Text = Regex.Replace(label_lastname.Text, "[^a-zA-zА-Яа-я]", "");
-            label_middlename.Text = Regex.Replace(label_middlename.Text, "[^a-zA-zА-Яа-я]", "");
-            label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
+            
 
 
 
             InitializeComponent();
             FindFilterUsersRole();
-            
+            if (!shouldUpdate) {
+                text_roles.Visibility = Visibility.Hidden;
+                combobox_roles.Visibility = Visibility.Hidden;
+            }
             label_firstname.Focus();
-
 
             if (shouldUpdate)
             {
@@ -96,6 +96,8 @@ namespace Stroymaterials.PageAdmin
             {
                 localUpdateUsers(newUser);
                 addUser();
+                MessageBox.Show("Пользователь добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                AppFrame.frmmain.Navigate(new PageLogin());
             }
             
         }
@@ -115,6 +117,14 @@ namespace Stroymaterials.PageAdmin
             user.users_datebirth = label_datebirth.SelectedDate.Value;
             user.users_login = label_login.Text;
             user.users_password = label_password.Password;
+            if (!shouldUpdate)
+            {
+                user.users_role = 1;
+            }
+            else
+            {
+                user.users_role = combobox_roles.SelectedIndex;
+            }
         }
         private void updateUsers()
         {
@@ -131,6 +141,7 @@ namespace Stroymaterials.PageAdmin
 
 
         // ----------------------------------------Заполнение Комбобоксов------------------------------
+
         private void FindFilterRoleUser()
         {
             var _roles = AppConnect.model0db.Roles.FirstOrDefault(x => x.roles_name == combobox_roles.SelectedItem.ToString());
@@ -156,7 +167,7 @@ namespace Stroymaterials.PageAdmin
         // ----------------------------------------Валидация------------------------------
         private void label_phone_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (label_phone.Text.Length < 10)
+            if (label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7") && !string.IsNullOrEmpty(label_phone.Text))
             {
                 button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
@@ -211,6 +222,26 @@ namespace Stroymaterials.PageAdmin
                 MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 button_create.IsEnabled = false;
             }
+        }
+
+        private void label_firstname_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_firstname.Text = Regex.Replace(label_firstname.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+
+        private void label_lastname_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_lastname.Text = Regex.Replace(label_lastname.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+
+        private void label_middlename_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_middlename.Text = Regex.Replace(label_middlename.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+
+        private void label_phone_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
         }
 
         // -------------------------------------------------------------------------------

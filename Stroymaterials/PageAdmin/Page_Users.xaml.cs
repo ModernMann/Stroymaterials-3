@@ -25,6 +25,7 @@ namespace Stroymaterials.PageAdmin
     /// 
     public partial class Page_Users : Page
     {
+        Users users = new Users();
         public Page_Users()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Stroymaterials.PageAdmin
 
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.frmmain.Navigate(new PageAddUser());
+            AppFrame.frmmain.Navigate(new PageAddUser(users, false, users));
         }
 
         private void button_del_Click(object sender, RoutedEventArgs e)

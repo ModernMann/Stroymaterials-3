@@ -26,7 +26,8 @@ namespace Stroymaterials.PageMenu
         Materials[] FindMaterials()
         {
             List<Materials> materials = AppConnect.model0db.Materials.ToList();
-            if (textbox_search != null) 
+            var materialsAll = materials;
+            if (textbox_search != null)
             {
                 materials = materials.Where(x => x.materials_name.ToLower().Contains(textbox_search.Text.ToLower())).ToList();
                 switch (combosort_price.SelectedIndex)
@@ -43,6 +44,14 @@ namespace Stroymaterials.PageMenu
             if (combosort_maker.SelectedIndex > 0)
             {
                 materials = materials.Where(x => x.Makers.makers_name == combosort_maker.SelectedItem.ToString()).ToList();
+            }
+            if (materials.Count > 0)
+            {
+                label_material_list.Content = "Найдено " + materials.Count.ToString() + " из " + materialsAll.Count.ToString();
+            }
+            else
+            {
+                label_material_list.Content = "Элементы не найдены";
             }
 
             return materials.ToArray();
