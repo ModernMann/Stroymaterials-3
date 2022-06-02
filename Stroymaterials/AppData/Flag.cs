@@ -9,5 +9,6 @@ namespace Stroymaterials.AppData
     public class Flag
     {
         public static string flag;
+        public static string name;
     }
 }

@@ -180,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageAuthorization\PageName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageAuthorization\PageRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +214,9 @@
     </Compile>
     <Compile Include="PageAuthorization\PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageAuthorization\PageName.xaml.cs">
+      <DependentUpon>PageName.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageAuthorization\PageRegistration.xaml.cs">
       <DependentUpon>PageRegistration.xaml</DependentUpon>

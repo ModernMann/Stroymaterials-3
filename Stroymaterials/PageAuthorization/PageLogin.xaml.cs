@@ -97,13 +97,18 @@ namespace Stroymaterials.PageAuthorization
                         case 1:
                             Flag.flag = userOdj.users_login;
                             AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmsec.Navigate(new PageName(Flag.flag));
+                            
                             break;
                         case 2:
                             Flag.flag = userOdj.users_login;
+                            AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmsec.Navigate(new PageName(Flag.flag));
                             break;
                         case 3:
                             Flag.flag= userOdj.users_login;
                             AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmsec.Navigate(new PageName(Flag.flag));
                             break;
                         default:
                             MessageBox.Show("Данные не обнаружены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
