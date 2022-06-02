@@ -83,7 +83,7 @@ namespace Stroymaterials.PageAdmin
             }
             else 
             {
-                combobox_roles.ItemsSource = StorymaterialsEntities1.GetContext().Roles.ToList();
+                
                 combobox_roles.SelectedIndex = 0;
                 newUser = new Users();
             }
@@ -168,13 +168,14 @@ namespace Stroymaterials.PageAdmin
             {
                 user.users_role = _roles.id_roles;
             }
+
         }
-        private void FindFilterUsersRole()
-        {
-            var typerole = AppConnect.model0db.Roles.FirstOrDefault(x => x.id_roles == user.users_role);
-            combobox_roles.ItemsSource = typerole.roles_name;
+        //private void FindFilterUsersRole()
+        //{
+        //    var typerole = AppConnect.model0db.Roles.FirstOrDefault(x => x.id_roles == user.users_role);
+        //    combobox_roles.ItemsSource = typerole.roles_name;
             
-        }
+        //}
         // -------------------------------------------------------------------------------
 
 

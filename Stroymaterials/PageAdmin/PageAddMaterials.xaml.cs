@@ -22,6 +22,7 @@ namespace Stroymaterials.PageAdmin
     /// </summary>
     public partial class PageAddMaterials : Page
     {
+        Materials material = new Materials();
         public PageAddMaterials()
         {
             InitializeComponent();
@@ -72,7 +73,7 @@ namespace Stroymaterials.PageAdmin
 
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.frmmain.Navigate(new PageCreateMaterials());
+            AppFrame.frmmain.Navigate(new PageCreateMaterials(material, false, material));
         }
 
         private void button_del_Click(object sender, RoutedEventArgs e)

@@ -54,9 +54,7 @@ namespace Stroymaterials.PageAdmin
             }
 
             _materials = material;
-            FindFilterMatCategory();
-            FindFilterMatMaker();
-            FindFilterMatProvider();
+            
 
 
             if (material == null)
@@ -74,6 +72,11 @@ namespace Stroymaterials.PageAdmin
                 text_units.Text = updateMaterial.materials_units;
                 text_count.Text = updateMaterial.materials_count.ToString();
                 text_description.Text = updateMaterial.materials_description;
+                FindFilterMatCategory();
+                FindFilterMatMaker();
+                FindFilterMatProvider();
+
+
                 FindFilterCategoryMat();
                 FindFilterMakerMat();
                 FindFilterProviderMat();
@@ -88,7 +91,8 @@ namespace Stroymaterials.PageAdmin
 
         }
 
-
+        // ----------------------------------------------------Заполнение комбобоксов-----------------------------------------
+        
         private void FindFilterMatProvider()
         {
             var typeProvider = AppConnect.model0db.Providers.FirstOrDefault(x => x.id_providers == _materials.materials_providers);
@@ -107,27 +111,46 @@ namespace Stroymaterials.PageAdmin
             combobox_category.Text = typeCategory.category_name;
         }
 
-        public PageCreateMaterials()
+        private void FindFilterCategoryMat()
         {
-            InitializeComponent();
-            text_name.Focus();
-            ///
-            ///AppData.CategoryName.cat = AppConnect.model0db.Category.ToList().ElementAt(0);
-
-            foreach (var item in AppConnect.model0db.Category.ToList())
+            var _category = AppConnect.model0db.Category.FirstOrDefault(x => x.category_name == combobox_category.SelectedItem.ToString());
+            if (_category == null)
             {
-                combobox_category.Items.Add(item.category_name);
+                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            foreach (var item in AppConnect.model0db.Providers.ToList())
+            else
             {
-                combobox_provider.Items.Add(item.providers_name);
+                _materials.materials_category = _category.id_category;
             }
-            foreach (var item in AppConnect.model0db.Makers.ToList())
-            {
-                combobox_makers.Items.Add(item.makers_name);
-            }
-            
         }
+
+        private void FindFilterProviderMat()
+        {
+            var _provider = AppConnect.model0db.Providers.FirstOrDefault(x => x.providers_name == combobox_provider.SelectedItem.ToString());
+            if (_provider == null)
+            {
+                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                _materials.materials_providers = _provider.id_providers;
+            }
+        }
+        private void FindFilterMakerMat()
+        {
+            var _maker = AppConnect.model0db.Makers.FirstOrDefault(x => x.makers_name == combobox_makers.SelectedItem.ToString());
+            if (_maker == null)
+            {
+                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                _materials.materials_makers = _maker.id_makers;
+            }
+        }
+        //--------------------------------------------------------------------------------------------------------------------
+
+        //-----------------------------------------------События--------------------------------------------------------------
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
@@ -172,9 +195,10 @@ namespace Stroymaterials.PageAdmin
             updatedMaterial.materials_price = updateMaterial.materials_price;
             updatedMaterial.materials_description = updateMaterial.materials_description;
             updatedMaterial.materials_units = updateMaterial.materials_units;
-            FindFilterCategoryMat();
-            FindFilterMakerMat();
-            FindFilterProviderMat();
+            updatedMaterial.materials_category = _materials.materials_category;
+            updatedMaterial.materials_makers = _materials.materials_makers;
+            updatedMaterial.materials_providers = _materials.materials_providers;
+            updatedMaterial.materials_photo = _materials.materials_photo;
         }
 
         private void localUpdateMaterials(Materials material)
@@ -184,75 +208,47 @@ namespace Stroymaterials.PageAdmin
             material.materials_price = Convert.ToDouble(text_price.Text);
             material.materials_description = text_description.Text;
             material.materials_units = text_units.Text;
-            FindFilterCategoryMat();
-            FindFilterMakerMat();
-            FindFilterProviderMat();
-
-
+            material.materials_category = _materials.materials_category;
+            material.materials_makers = _materials.materials_makers;
+            material.materials_providers = _materials.materials_providers;
+            material.materials_photo = _materials.materials_photo;
         }
-
-        private void FindFilterCategoryMat()
-        {
-            var _category = AppConnect.model0db.Category.FirstOrDefault(x => x.category_name == combobox_category.SelectedItem.ToString());
-            if (_category == null)
-            {
-                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                _materials.materials_category = _category.id_category;
-            }
-        }
-
         
-
-        private void FindFilterProviderMat()
-        {
-            var _provider = AppConnect.model0db.Providers.FirstOrDefault(x => x.providers_name == combobox_provider.SelectedItem.ToString());
-            if (_provider == null)
-            {
-                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                _materials.materials_providers = _provider.id_providers;
-            }
-        }
-        private void FindFilterMakerMat()
-        {
-            var _maker = AppConnect.model0db.Makers.FirstOrDefault(x => x.makers_name == combobox_makers.SelectedItem.ToString());
-            if (_maker == null)
-            {
-                MessageBox.Show("Выберите элемент", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                _materials.materials_makers = _maker.id_makers;
-            }
-        }
-
         private void button_add_image_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
 
             dialog.ShowDialog();
-
-            string directory;
-            directory = dialog.FileName.Substring(dialog.FileName.LastIndexOf('\\'), dialog.FileName.Length - dialog.FileName.Substring(0, dialog.FileName.LastIndexOf('\\')).Length);
-
-            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory))
+            
+            try
             {
-                File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory);
-            }
+                
 
-            File.Copy(dialog.FileName, System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\" + directory);
-            _materials.materials_photo = "/Recources/img/" + dialog.SafeFileName;
-            AppConnect.model0db.SaveChanges();
-            DataContext = null;
-            DataContext = _materials;
+                string directory;
+                directory = dialog.FileName.Substring(dialog.FileName.LastIndexOf('\\'), dialog.FileName.Length - dialog.FileName.Substring(0, dialog.FileName.LastIndexOf('\\')).Length);
+
+                if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory))
+                {
+                    File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\img\\" + directory);
+                }
+
+                File.Copy(dialog.FileName, System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\" + directory);
+                _materials.materials_photo ="/Recources/img/" + dialog.SafeFileName;
+                AppConnect.model0db.SaveChanges();
+                DataContext = null;
+                DataContext = _materials;
+            }
+            catch 
+            {
+                _materials.materials_photo = "picture.png" ;
+                AppConnect.model0db.SaveChanges();
+                DataContext = null;
+                DataContext = _materials;
+            }
+            
             
         }
 
-        
+        //--------------------------------------------------------------------------------------------------------------------
     }
 }
