@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -69,7 +70,6 @@ namespace Stroymaterials.PageAdmin
             {
                 text_name.Text = updateMaterial.materials_name;
                 text_price.Text = updateMaterial.materials_price.ToString();
-                text_units.Text = updateMaterial.materials_units;
                 text_count.Text = updateMaterial.materials_count.ToString();
                 text_description.Text = updateMaterial.materials_description;
                 FindFilterMatCategory();
@@ -207,7 +207,7 @@ namespace Stroymaterials.PageAdmin
             material.materials_count = Convert.ToInt32(text_count.Text);
             material.materials_price = Convert.ToDouble(text_price.Text);
             material.materials_description = text_description.Text;
-            material.materials_units = text_units.Text;
+            material.materials_units = "шт.";
             material.materials_category = _materials.materials_category;
             material.materials_makers = _materials.materials_makers;
             material.materials_providers = _materials.materials_providers;
@@ -247,6 +247,16 @@ namespace Stroymaterials.PageAdmin
             }
             
             
+        }
+
+        private void text_price_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            text_price.Text = Regex.Replace(text_price.Text, "[^0-9.]", "");
+        }
+
+        private void text_count_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            text_count.Text = Regex.Replace(text_count.Text, "[^0-9]", "");
         }
 
         //--------------------------------------------------------------------------------------------------------------------

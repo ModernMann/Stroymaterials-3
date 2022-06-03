@@ -214,7 +214,7 @@ namespace Stroymaterials.PageAdmin
 
         private void label_password_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (label_password.Password.Length < 8 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+            if (label_password.Password.Length < 4 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
             {
                 text_password_warning.Content = "Пароль должен содержать не меньше 8 символов";
                 label_password.Background = Brushes.LightCoral;
@@ -254,10 +254,10 @@ namespace Stroymaterials.PageAdmin
         {
             label_middlename.Text = Regex.Replace(label_middlename.Text, "[^a-zA-zА-Яа-я]", "");
         }
-
         private void label_phone_SelectionChanged(object sender, RoutedEventArgs e)
         {
             label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
+
         }
 
         // -------------------------------------------------------------------------------

@@ -56,8 +56,8 @@ namespace Stroymaterials.PageAuthorization
         {
             try
             {
-                var userOdj = AppConnect.model0db.Users.FirstOrDefault(x => x.users_login == login_label.Text
-                && x.users_password == password_label.Password);
+                var userOdj = AppConnect.model0db.Users.FirstOrDefault(x => x.users_login == login_label.Text.ToString()
+                && x.users_password == password_label.Password.ToString());
                 if (countFail && userOdj == null)
                 {
                     frame_captcha.Height = 112;

@@ -13,7 +13,7 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Width="70" DisplayMemberBinding="{Binding Path= materials_name}" Header="Название"/>
+                        <GridViewColumn Width="140" DisplayMemberBinding="{Binding Path= materials_name}" Header="Название"/>
                         <GridViewColumn Width="100" DisplayMemberBinding="{Binding Path= materials_units }" Header="Единицы измерения"/>
                         <GridViewColumn Width="100" DisplayMemberBinding="{Binding Path= materials_count}" Header="Количество"/>
                         <GridViewColumn Width="80" DisplayMemberBinding="{Binding Path= materials_category}" Header="Категория"/>
