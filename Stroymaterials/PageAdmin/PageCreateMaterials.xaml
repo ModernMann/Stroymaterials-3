@@ -24,12 +24,12 @@
             </ComboBox.DataContext>
         </ComboBox>
         <Label x:Name="label_makers" Content="Производитель" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
-        <Label x:Name="label_description" Content="Описание" HorizontalAlignment="Left" Margin="218,181,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
-        <TextBox x:Name="text_description" HorizontalAlignment="Left" Height="125" Margin="218,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="20" Foreground="Black"/>
-        <Button x:Name="button_save" Content="Сохранить" HorizontalAlignment="Left" Margin="608,270,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_save_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
-        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="608,312,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_back_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
-        <Button x:Name="button_add_image" Content="Добавить..." HorizontalAlignment="Left" Margin="585,103,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Height="40" Click="button_add_image_Click" Foreground="#FFAB0303" Background="{x:Null}" BorderBrush="Black"/>
-        <Label x:Name="label_image" Content="Изображение" HorizontalAlignment="Left" Margin="429,104,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
+        <Label x:Name="label_description" Content="Описание" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
+        <TextBox x:Name="text_description" HorizontalAlignment="Left" Height="105" Margin="10,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="20" Foreground="Black"/>
+        <Button x:Name="button_save" Content="Сохранить" HorizontalAlignment="Left" Margin="382,344,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_save_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
+        <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="509,344,0,0" VerticalAlignment="Top" Width="122" FontSize="20" Click="button_back_Click" Foreground="#FFAB0303" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black"/>
+        <Button x:Name="button_add_image" Content="Добавить..." HorizontalAlignment="Left" Margin="585,94,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Height="40" Click="button_add_image_Click" Foreground="#FFAB0303" Background="{x:Null}" BorderBrush="Black"/>
+        <Label x:Name="label_image" Content="Изображение" HorizontalAlignment="Left" Margin="429,95,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <StackPanel Width="180" Height="200" Margin="7,168,613,32">
             <Label x:Name="label_category" Content="Категория " Margin="5,0,0,0" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
             <ComboBox x:Name="combobox_category" Width="176" Margin="0,0,0,0" FontSize="20" Foreground="#FF4D766B" Height="33"/>

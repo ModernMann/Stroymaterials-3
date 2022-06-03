@@ -40,6 +40,9 @@ namespace Stroymaterials.PageAdmin
 
 
             InitializeComponent();
+
+
+
             text_name.Focus();
             foreach (var item in AppConnect.model0db.Category.ToList())
             {
@@ -258,6 +261,8 @@ namespace Stroymaterials.PageAdmin
         {
             text_count.Text = Regex.Replace(text_count.Text, "[^0-9]", "");
         }
+
+        
 
         //--------------------------------------------------------------------------------------------------------------------
     }
