@@ -90,24 +90,24 @@ namespace Stroymaterials.PageAuthorization
                 }
                 else
                 {
-                    role = userOdj.users_role;
-                    switch (role)
+                    Flag.role = userOdj.users_role;
+                    switch (Flag.role)
                     {
                         
                         case 1:
                             Flag.flag = userOdj.users_login;
-                            AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmmain.Navigate(new PageCatalog());
                             AppFrame.frmsec.Navigate(new PageName(Flag.flag));
                             
                             break;
                         case 2:
                             Flag.flag = userOdj.users_login;
-                            AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmmain.Navigate(new PageCatalog());
                             AppFrame.frmsec.Navigate(new PageName(Flag.flag));
                             break;
                         case 3:
                             Flag.flag= userOdj.users_login;
-                            AppFrame.frmmain.Navigate(new PageCatalog(role));
+                            AppFrame.frmmain.Navigate(new PageCatalog());
                             AppFrame.frmsec.Navigate(new PageName(Flag.flag));
                             break;
                         default:
@@ -131,8 +131,9 @@ namespace Stroymaterials.PageAuthorization
         private void button_guest_Click(object sender, RoutedEventArgs e)
         {
             Flag.flag = "Гость";
-            AppFrame.frmmain.Navigate(new PageCatalog(4));
-
+            Flag.role = 4;
+            AppFrame.frmmain.Navigate(new PageCatalog());
+            AppFrame.frmsec.Navigate(new PageName(Flag.flag));
         }
     }
 }

@@ -113,6 +113,7 @@ namespace Stroymaterials.PageAdmin
                 addUser();
                 MessageBox.Show("Пользователь добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 AppFrame.frmmain.Navigate(new PageLogin());
+                AppFrame.frmsec.Navigate(new PageName(Flag.flag));
             }
             
         }

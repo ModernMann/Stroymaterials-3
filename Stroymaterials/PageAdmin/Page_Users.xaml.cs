@@ -1,5 +1,6 @@
 ﻿using Stroymaterials.AppData;
 using Stroymaterials.PageAuthorization;
+using Stroymaterials.PageMenu;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -104,6 +105,7 @@ namespace Stroymaterials.PageAdmin
         private void button_exit_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.frmmain.Navigate(new PageLogin());
+            AppFrame.frmsec.Navigate(new PageName(null));
         }
 
         private void textbox_search_SelectionChanged(object sender, RoutedEventArgs e)
@@ -111,6 +113,11 @@ namespace Stroymaterials.PageAdmin
             List<Users> _users = AppConnect.model0db.Users.ToList();
             _users = _users.Where(x => x.users_lastname.ToLower().Contains(textbox_search.Text.ToLower())).ToList();
             listview_users.ItemsSource = _users;
+        }
+
+        private void button_return_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.frmmain.Navigate(new PageCatalog());
         }
     }
 }

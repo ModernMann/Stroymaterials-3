@@ -76,7 +76,7 @@ namespace Stroymaterials.PageMenu
             }
             combosort_maker.SelectedIndex = 0;
         }
-        public PageCatalog( int role)
+        public PageCatalog()
         {
             //Application.Current.MainWindow.Title = "hjkhk";
             //foreach (FrameworkElement txt in Application.Current.Windows)
@@ -92,7 +92,7 @@ namespace Stroymaterials.PageMenu
             SetPriceMaterials();
             SetMakerMaterials();
             listbox_catalog.ItemsSource = FindMaterials();
-            switch (role)
+            switch (Flag.role)
             {
                 case 1:
                     button_adminpanel.Visibility = Visibility.Hidden;
@@ -125,6 +125,7 @@ namespace Stroymaterials.PageMenu
         private void button_exit_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.frmmain.Navigate(new PageLogin());
+            AppFrame.frmsec.Navigate(new PageName(null));
         }
 
         private void combosort_price_SelectionChanged(object sender, SelectionChangedEventArgs e)
