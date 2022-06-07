@@ -31,10 +31,10 @@
         <Button x:Name="button_edit" Content="Изменить" HorizontalAlignment="Left" Height="40" Margin="350,270,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_edit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
         <Button x:Name="button_del" Content="Удалить" HorizontalAlignment="Left" Height="40" Margin="490,270,0,0" VerticalAlignment="Top" Width="120" FontSize="20" Click="button_del_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
         <Button x:Name="button_users" Content="Пользователи" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_users_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
-        <Button x:Name="button_exit" Content="Выход" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_exit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
+        <Button x:Name="button_exit" Content="Выход" HorizontalAlignment="Center" Margin="0,327,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Click="button_exit_Click" Background="{x:Null}" Foreground="#FFAB0303" BorderBrush="Black"/>
         <TextBox x:Name="textbox_search" HorizontalAlignment="Left" Height="25" Margin="140,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15" BorderBrush="#FFABADB3" Background="{x:Null}" Foreground="Black" FontWeight="Bold" SelectionChanged="textbox_search_SelectionChanged"/>
         <Label x:Name="label_search" Content="Поиск по названию" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,-0.343" FontWeight="Bold" Foreground="#FFAB0303"/>
-        <Button x:Name="button_return" Content="Вернуться в каталог" HorizontalAlignment="Left" Margin="210,314,0,0" VerticalAlignment="Top" Width="200" Height="40" FontSize="20" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303" Click="button_return_Click"/>
+        <Button x:Name="button_return" Content="Вернуться в каталог" HorizontalAlignment="Left" Margin="410,327,0,0" VerticalAlignment="Top" Width="200" Height="40" FontSize="20" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303" Click="button_return_Click"/>
 
     </Grid>
 </Page>
