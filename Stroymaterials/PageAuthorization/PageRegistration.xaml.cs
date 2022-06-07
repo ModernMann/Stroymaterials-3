@@ -22,6 +22,7 @@ namespace Stroymaterials.PageAuthorization
     /// </summary>
     public partial class PageRegistration : Page
     {
+        string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
         public PageRegistration()
         {
             InitializeComponent();
@@ -86,15 +87,11 @@ namespace Stroymaterials.PageAuthorization
 
         
 
-        private void label_phone_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
-            
-        }
-
+       
+        //проверка вводимых данных
         private void label_phone_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (label_phone.Text.Length < 10)
+            if (label_phone.Text.Length != 11 && !label_phone.Text.StartsWith("7") && !string.IsNullOrEmpty(label_phone.Text))
             {
                 button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
@@ -107,9 +104,69 @@ namespace Stroymaterials.PageAuthorization
                 label_phone.BorderBrush = Brushes.Green;
             }
         }
-        //проверка вводимых данных
-        //label_firstname.Text = Regex.Replace(label_firstname.Text, "[^A-Za-zА-Я-а-я+]", "");
-        //label_lastname.Text = Regex.Replace(label_lastname.Text, "[^A-Za-zА-Я-а-я+]", "");
-        
+        private void label_mail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!Regex.IsMatch(label_mail.Text.ToString(), cond))
+            {
+                button_create.IsEnabled = false;
+                label_mail.Background = Brushes.LightCoral;
+                label_mail.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                button_create.IsEnabled = true;
+                label_mail.Background = Brushes.LightGreen;
+                label_mail.BorderBrush = Brushes.Green;
+            }
+        }
+
+        private void label_password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (label_password.Password.Length < 4 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+            {
+                
+                label_password.Background = Brushes.LightCoral;
+                label_password.BorderBrush = Brushes.Red;
+                button_create.IsEnabled = false;
+
+            }
+            else
+            {
+                button_create.IsEnabled = true;
+                label_password.Background = Brushes.LightGreen;
+                label_password.BorderBrush = Brushes.Green;
+                text_password.Content = "";
+            }
+        }
+
+        private void label_datebirth_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (label_datebirth.SelectedDate > DateTime.Now.AddYears(-18) || label_datebirth.SelectedDate < DateTime.Now.AddYears(-99))
+            {
+                MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                button_create.IsEnabled = false;
+            }
+        }
+
+        private void label_firstname_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_firstname.Text = Regex.Replace(label_firstname.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+
+        private void label_lastname_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_lastname.Text = Regex.Replace(label_lastname.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+
+        private void label_middlename_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_middlename.Text = Regex.Replace(label_middlename.Text, "[^a-zA-zА-Яа-я]", "");
+        }
+        private void label_phone_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
+
+        }
+
     }
 }
