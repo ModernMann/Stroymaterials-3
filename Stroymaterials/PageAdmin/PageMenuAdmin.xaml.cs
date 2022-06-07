@@ -28,7 +28,7 @@ namespace Stroymaterials.PageAdmin
         {
             InitializeComponent();
             AppFrame.frmmain = frame_sec;
-            frame_sec.Navigate(new Page_Users());
+            frame_sec.Navigate(new PageAddMaterials());
         }
 
         

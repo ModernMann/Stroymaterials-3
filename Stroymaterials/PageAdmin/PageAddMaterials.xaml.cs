@@ -27,6 +27,10 @@ namespace Stroymaterials.PageAdmin
         public PageAddMaterials()
         {
             InitializeComponent();
+            if (Flag.role == 2) 
+            {
+                button_users.Visibility = Visibility.Hidden;
+            }
             listview_materials.ItemsSource = StorymaterialsEntities1.GetContext().Materials.ToList();
         }
 

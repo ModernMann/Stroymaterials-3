@@ -32,7 +32,7 @@
         <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
         <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectedDateChanged="label_datebirth_SelectedDateChanged"/>
 
-        <ComboBox x:Name="combobox_roles" HorizontalAlignment="Left" Margin="538,32,0,0"  VerticalAlignment="Top" Width="174" FontSize="15" Foreground="#FF4D766B">
+        <ComboBox x:Name="combobox_roles" HorizontalAlignment="Left" Margin="538,32,0,0"  VerticalAlignment="Top" Width="174" FontSize="15" Foreground="#FF4D766B" Height="25">
             <ComboBox.DataContext>
                 <AppData:Makers/>
             </ComboBox.DataContext>

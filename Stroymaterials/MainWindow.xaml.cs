@@ -33,16 +33,6 @@ namespace Stroymaterials
             main_frame.Navigate(new PageLogin());
             frame_name.Navigate(new PageName(null));
 
-            //if (Flag.flag == null)
-            //{
-            //    label_welcome.Visibility = Visibility.Hidden;
-            //}
-            //else
-            //{
-            //    label_welcome.Visibility = Visibility.Visible;
-            
-            //}
-
         }
 
     }

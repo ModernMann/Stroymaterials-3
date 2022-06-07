@@ -33,6 +33,7 @@ namespace Stroymaterials.PageAuthorization
         public PageLogin()
         {
             InitializeComponent();
+
             login_label.Focus();
             frame_captcha.Height = 0;
             

@@ -98,7 +98,7 @@ namespace Stroymaterials.PageMenu
                     button_adminpanel.Visibility = Visibility.Hidden;
                     break;
                 case 2:
-                    button_adminpanel.Visibility = Visibility.Hidden;
+                    button_adminpanel.Visibility = Visibility.Visible;
                     break;
                 case 3:
                     button_adminpanel.Visibility = Visibility.Visible;
