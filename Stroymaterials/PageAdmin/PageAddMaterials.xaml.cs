@@ -56,7 +56,6 @@ namespace Stroymaterials.PageAdmin
                 try
                 {
                     AppFrame.frmmain.Navigate(new PageCreateMaterials(materialObj, true, materialObj));
-                    //StorymaterialsEntities1.GetContext().Materials.RemoveRange(materialObj2);
                     StorymaterialsEntities1.GetContext().SaveChanges();
 
                 }

@@ -18,7 +18,7 @@
         <TextBox x:Name="label_lastname" HorizontalAlignment="Left" Height="25" Margin="164,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" FontSize="15" SelectionBrush="Black" SelectionChanged="label_lastname_SelectionChanged"/>
         <TextBox x:Name="label_middlename" HorizontalAlignment="Left" Height="25" Margin="350,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="15" SelectionBrush="Black" SelectionChanged="label_middlename_SelectionChanged"/>
         <Label x:Name="text_phone" Content="Телефон" HorizontalAlignment="Left" Margin="30,161,0,0" VerticalAlignment="Top" FontSize="20" Width="170" Height="35"/>
-        <TextBox x:Name="label_phone" HorizontalAlignment="Left" Height="25" Margin="30,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="20" LostFocus="label_phone_LostFocus" SelectionBrush="Black" SelectionChanged="label_phone_SelectionChanged"/>
+        <TextBox x:Name="label_phone" HorizontalAlignment="Left" Height="25" Margin="30,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="20" LostFocus="label_phone_LostFocus" SelectionBrush="Black" SelectionChanged="label_phone_SelectionChanged" TextChanged="label_phone_TextChanged"/>
         <Label x:Name="text_datebirth" Content="Дату рождения" HorizontalAlignment="Left" Margin="29,53,0,0" VerticalAlignment="Top" FontSize="20" Width="233" Height="35"/>
         <Label x:Name="text_mail" Content="Почту" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="20" Width="235" Height="35"/>
         <TextBox x:Name="label_mail" HorizontalAlignment="Left" Height="25" Margin="29,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="15" RenderTransformOrigin="0.111,1.515" SelectionBrush="Black" LostFocus="label_mail_LostFocus"/>
@@ -30,7 +30,7 @@
         <Label x:Name="text_password_rep" Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" FontSize="20" Width="203" Height="35"/>
         <Button x:Name="button_create" Content="Создать" HorizontalAlignment="Left" Margin="323,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" IsEnabled="False" Click="button_create_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
         <Button x:Name="button_back" Content="Назад" HorizontalAlignment="Left" Margin="430,246,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="20" IsCancel="True" IsDefault="True" Click="button_back_Click" Background="{x:Null}" BorderBrush="Black" Foreground="#FFAB0303"/>
-        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectedDateChanged="label_datebirth_SelectedDateChanged"/>
+        <DatePicker x:Name="label_datebirth" HorizontalAlignment="Left" Margin="29,93,0,0" VerticalAlignment="Top" Width="235" Height="25" FontSize="15" SelectedDateChanged="label_datebirth_SelectedDateChanged" LostFocus="label_datebirth_LostFocus"/>
 
         <ComboBox x:Name="combobox_roles" HorizontalAlignment="Left" Margin="538,32,0,0"  VerticalAlignment="Top" Width="174" FontSize="15" Foreground="#FF4D766B" Height="25">
             <ComboBox.DataContext>

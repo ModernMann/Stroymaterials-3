@@ -41,7 +41,6 @@ namespace Stroymaterials.PageAdmin
             this.shouldUpdate = shouldUpdate;
             this.user = user;
             this.updateUser = updateuser;
-            
 
 
 
@@ -130,6 +129,7 @@ namespace Stroymaterials.PageAdmin
             user.users_lastname = label_lastname.Text;
             user.users_phone = label_phone.Text;
             user.users_mail = label_mail.Text;
+            
             user.users_datebirth = label_datebirth.SelectedDate.Value;
             user.users_login = label_login.Text;
             user.users_password = label_password.Password;
@@ -171,12 +171,7 @@ namespace Stroymaterials.PageAdmin
             }
 
         }
-        //private void FindFilterUsersRole()
-        //{
-        //    var typerole = AppConnect.model0db.Roles.FirstOrDefault(x => x.id_roles == user.users_role);
-        //    combobox_roles.ItemsSource = typerole.roles_name;
-            
-        //}
+        
         // -------------------------------------------------------------------------------
 
 
@@ -260,8 +255,9 @@ namespace Stroymaterials.PageAdmin
             label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
 
         }
+        
 
- 
+
 
         // -------------------------------------------------------------------------------
     }
