@@ -185,7 +185,7 @@ namespace Stroymaterials.PageAdmin
         // ----------------------------------------Валидация------------------------------
         private void label_phone_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7") && string.IsNullOrEmpty(label_phone.Text))
+            if ((label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7")) || string.IsNullOrEmpty(label_phone.Text))
             {
                 button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
@@ -266,6 +266,39 @@ namespace Stroymaterials.PageAdmin
         {
             label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
 
+        }
+
+        private void label_password_rep_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (label_password.Password != label_password_rep.Password)
+            {
+                label_password_rep.Background = Brushes.LightCoral;
+                label_password_rep.BorderBrush = Brushes.Red;
+                button_create.IsEnabled = false;
+            }
+            else 
+            {
+                button_create.IsEnabled = true;
+                label_password_rep.Background = Brushes.LightGreen;
+                label_password_rep.BorderBrush = Brushes.Green;
+            }
+        }
+
+        private void label_login_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (label_login.Text.Length < 4 || string.IsNullOrEmpty(label_login.Text))
+            {
+                MessageBox.Show("Логин не может быть короче 4х символов", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                button_create.IsEnabled = false;
+                label_login.Background = Brushes.LightCoral;
+                label_login.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                button_create.IsEnabled = true;
+                label_login.Background = Brushes.LightGreen;
+                label_login.BorderBrush = Brushes.Green;
+            }
         }
 
 
