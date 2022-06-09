@@ -126,7 +126,7 @@ namespace Stroymaterials.PageAuthorization
 
         private void button_registration_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.frmmain.Navigate(new PageRegistration());
+            AppFrame.frmmain.Navigate(new PageAddUser(users, false, users));
         }
 
         private void button_guest_Click(object sender, RoutedEventArgs e)

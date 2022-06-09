@@ -24,7 +24,7 @@ namespace Stroymaterials
     {
         public MainWindow()
         {
-            Flag.flag = "";
+            Flag.flag = null;
             InitializeComponent();
             AppConnect.model0db = new StorymaterialsEntities1();
             AppFrame.frmmain = main_frame;

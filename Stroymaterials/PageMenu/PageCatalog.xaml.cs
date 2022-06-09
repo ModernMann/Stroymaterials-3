@@ -124,6 +124,7 @@ namespace Stroymaterials.PageMenu
 
         private void button_exit_Click(object sender, RoutedEventArgs e)
         {
+            Flag.flag = null;
             AppFrame.frmmain.Navigate(new PageLogin());
             AppFrame.frmsec.Navigate(new PageName(null));
         }

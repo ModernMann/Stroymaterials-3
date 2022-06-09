@@ -15,7 +15,7 @@
         <Label x:Name="label_count" Content="Количество" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <TextBox x:Name="text_count" HorizontalAlignment="Left" Height="33" Margin="10,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="18" Foreground="#FFAB0303" SelectionChanged="text_count_SelectionChanged"/>
         <Label x:Name="label_price" Content="Цена" HorizontalAlignment="Left" Margin="429,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FFAB0303"/>
-        <TextBox x:Name="text_price" HorizontalAlignment="Left" Height="33" Margin="429,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="18" Foreground="#FFAB0303" SelectionChanged="text_price_SelectionChanged" TextChanged="text_price_TextChanged"/>
+        <TextBox x:Name="text_price" HorizontalAlignment="Left" Height="33" Margin="429,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="18" Foreground="#FFAB0303" SelectionChanged="text_price_SelectionChanged"/>
         <ComboBox x:Name="combobox_provider" HorizontalAlignment="Left" Margin="218,52,0,0"  VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FFAB0303" Height="33"/>
         <Label x:Name="label_provider" Content="Поставщик" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFAB0303" FontWeight="Bold"/>
         <ComboBox x:Name="combobox_makers" HorizontalAlignment="Left" Margin="218,136,0,0"  VerticalAlignment="Top" Width="174" FontSize="20" Foreground="#FFAB0303" Height="33">

@@ -93,7 +93,14 @@ namespace Stroymaterials.PageAdmin
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.frmmain.Navigate(new Page_Users());
+            if (Flag.flag == null)
+            {
+                AppFrame.frmmain.Navigate(new PageLogin());
+            }
+            else
+            {
+                AppFrame.frmmain.Navigate(new Page_Users());
+            }
         }
 
 
@@ -129,7 +136,6 @@ namespace Stroymaterials.PageAdmin
             user.users_lastname = label_lastname.Text;
             user.users_phone = label_phone.Text;
             user.users_mail = label_mail.Text;
-            
             user.users_datebirth = label_datebirth.SelectedDate.Value;
             user.users_login = label_login.Text;
             user.users_password = label_password.Password;
@@ -179,7 +185,7 @@ namespace Stroymaterials.PageAdmin
         // ----------------------------------------Валидация------------------------------
         private void label_phone_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7") && !string.IsNullOrEmpty(label_phone.Text))
+            if (label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7") && string.IsNullOrEmpty(label_phone.Text))
             {
                 button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
@@ -212,7 +218,7 @@ namespace Stroymaterials.PageAdmin
         {
             if (label_password.Password.Length < 4 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
             {
-                text_password_warning.Content = "Пароль должен содержать не меньше 8 символов";
+                text_password_warning.Content = "Пароль должен содержать не меньше 4 символов";
                 label_password.Background = Brushes.LightCoral;
                 label_password.BorderBrush = Brushes.Red;
                 button_create.IsEnabled = false;
@@ -233,6 +239,12 @@ namespace Stroymaterials.PageAdmin
             {
                 MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 button_create.IsEnabled = false;
+            }
+            else
+            {
+                button_create.IsEnabled = true;
+                label_phone.Background = Brushes.LightGreen;
+                label_phone.BorderBrush = Brushes.Green;
             }
         }
 
@@ -255,7 +267,8 @@ namespace Stroymaterials.PageAdmin
             label_phone.Text = Regex.Replace(label_phone.Text, "[^0-9+]", "");
 
         }
-        
+
+
 
 
 

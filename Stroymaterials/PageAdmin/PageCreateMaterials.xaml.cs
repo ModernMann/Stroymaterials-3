@@ -236,7 +236,7 @@ namespace Stroymaterials.PageAdmin
                 }
 
                 File.Copy(dialog.FileName, System.AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Resources\\" + directory);
-                _materials.materials_photo ="/Recources/img/" + dialog.SafeFileName;
+                _materials.materials_photo = dialog.SafeFileName;
                 AppConnect.model0db.SaveChanges();
                 DataContext = null;
                 DataContext = _materials;
