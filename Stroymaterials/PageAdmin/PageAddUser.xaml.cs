@@ -29,7 +29,8 @@ namespace Stroymaterials.PageAdmin
         Users newUser;
         Users updateUser;
         string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
-        
+        int error = 0;
+
         //public PageAddUser()
         //{
         //    InitializeComponent();
@@ -41,6 +42,7 @@ namespace Stroymaterials.PageAdmin
             this.shouldUpdate = shouldUpdate;
             this.user = user;
             this.updateUser = updateuser;
+            
 
 
 
@@ -58,7 +60,9 @@ namespace Stroymaterials.PageAdmin
             {
                 combobox_roles.SelectedIndex = 0;
             }
-            
+
+
+           
 
 
             if (!shouldUpdate) {
@@ -88,8 +92,19 @@ namespace Stroymaterials.PageAdmin
             }
 
         }
-        
-        
+
+
+        private void CheckCreate(int error)
+        {
+            if (error == 6)
+            {
+                button_create.IsEnabled = true;
+            }
+            else
+            {
+                button_create.IsEnabled = false;
+            }
+        }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
@@ -106,21 +121,24 @@ namespace Stroymaterials.PageAdmin
 
         private void button_create_Click(object sender, RoutedEventArgs e)
         {
-            if (shouldUpdate)
-            {
-                localUpdateUsers(user);
-                updateUsers();
-                MessageBox.Show("Изменения сохранены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                AppFrame.frmmain.Navigate(new Page_Users());
-            }
-            else
-            {
-                localUpdateUsers(newUser);
-                addUser();
-                MessageBox.Show("Пользователь добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                AppFrame.frmmain.Navigate(new PageLogin());
-                AppFrame.frmsec.Navigate(new PageName(Flag.flag));
-            }
+           
+                if (shouldUpdate)
+                {
+                    localUpdateUsers(user);
+                    updateUsers();
+                    MessageBox.Show("Изменения сохранены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    AppFrame.frmmain.Navigate(new Page_Users());
+                }
+                else
+                {
+                    localUpdateUsers(newUser);
+                    addUser();
+                    MessageBox.Show("Пользователь добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    AppFrame.frmmain.Navigate(new PageLogin());
+                    AppFrame.frmsec.Navigate(new PageName(Flag.flag));
+                }
+            
+            
             
         }
 
@@ -187,30 +205,36 @@ namespace Stroymaterials.PageAdmin
         {
             if ((label_phone.Text.Length !=11 && !label_phone.Text.StartsWith("7")) || string.IsNullOrEmpty(label_phone.Text))
             {
-                button_create.IsEnabled = false;
+                
                 label_phone.Background = Brushes.LightCoral;
                 label_phone.BorderBrush = Brushes.Red;
+                
             }
             else
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
                 label_phone.Background = Brushes.LightGreen;
                 label_phone.BorderBrush = Brushes.Green;
+                
             }
         }
         private void label_mail_LostFocus(object sender, RoutedEventArgs e)
         {
             if (!Regex.IsMatch(label_mail.Text.ToString(), cond))
             {
-                button_create.IsEnabled = false;
+               
                 label_mail.Background = Brushes.LightCoral;
                 label_mail.BorderBrush = Brushes.Red;
+               
             }
             else
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
                 label_mail.Background = Brushes.LightGreen;
                 label_mail.BorderBrush = Brushes.Green;
+                
             }
         }
 
@@ -221,15 +245,16 @@ namespace Stroymaterials.PageAdmin
                 text_password_warning.Content = "Пароль должен содержать не меньше 4 символов";
                 label_password.Background = Brushes.LightCoral;
                 label_password.BorderBrush = Brushes.Red;
-                button_create.IsEnabled = false;
-                
+
             }
             else
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
                 label_password.Background = Brushes.LightGreen;
                 label_password.BorderBrush = Brushes.Green;
-                text_password.Content = "";
+               
+                
             }
         }
 
@@ -238,13 +263,15 @@ namespace Stroymaterials.PageAdmin
             if (label_datebirth.SelectedDate > DateTime.Now.AddYears(-18) || label_datebirth.SelectedDate < DateTime.Now.AddYears(-99)) 
             {
                 MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                button_create.IsEnabled = false;
+                
             }
             else
             {
-                button_create.IsEnabled = true;
-                label_phone.Background = Brushes.LightGreen;
-                label_phone.BorderBrush = Brushes.Green;
+                error++;
+                CheckCreate(error);
+                label_datebirth.Background = Brushes.LightGreen;
+                label_datebirth.BorderBrush = Brushes.Green;
+                
             }
         }
 
@@ -274,13 +301,15 @@ namespace Stroymaterials.PageAdmin
             {
                 label_password_rep.Background = Brushes.LightCoral;
                 label_password_rep.BorderBrush = Brushes.Red;
-                button_create.IsEnabled = false;
+               
             }
             else 
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
                 label_password_rep.Background = Brushes.LightGreen;
                 label_password_rep.BorderBrush = Brushes.Green;
+                
             }
         }
 
@@ -289,15 +318,17 @@ namespace Stroymaterials.PageAdmin
             if (label_login.Text.Length < 4 || string.IsNullOrEmpty(label_login.Text))
             {
                 MessageBox.Show("Логин не может быть короче 4х символов", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
-                button_create.IsEnabled = false;
                 label_login.Background = Brushes.LightCoral;
                 label_login.BorderBrush = Brushes.Red;
+                
             }
             else
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
                 label_login.Background = Brushes.LightGreen;
                 label_login.BorderBrush = Brushes.Green;
+                
             }
         }
 

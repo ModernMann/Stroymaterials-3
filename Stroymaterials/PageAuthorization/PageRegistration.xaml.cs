@@ -23,6 +23,7 @@ namespace Stroymaterials.PageAuthorization
     public partial class PageRegistration : Page
     {
         string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
+        int error=0;
         public PageRegistration()
         {
             InitializeComponent();
@@ -85,7 +86,17 @@ namespace Stroymaterials.PageAuthorization
             }
         }
 
-        
+        private void CheckCreate(int error) 
+        {
+            if (error == 6)
+            {
+                button_create.IsEnabled = false;
+            }
+            else
+            {
+                button_create.IsEnabled = true;
+            }
+        }
 
        
         //проверка вводимых данных
@@ -93,58 +104,17 @@ namespace Stroymaterials.PageAuthorization
         {
             if (label_phone.Text.Length != 11 && !label_phone.Text.StartsWith("7") && !string.IsNullOrEmpty(label_phone.Text))
             {
-                button_create.IsEnabled = false;
+                //button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
                 label_phone.BorderBrush = Brushes.Red;
             }
             else
             {
-                button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
+                //button_create.IsEnabled = true;
                 label_phone.Background = Brushes.LightGreen;
                 label_phone.BorderBrush = Brushes.Green;
-            }
-        }
-        private void label_mail_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (!Regex.IsMatch(label_mail.Text.ToString(), cond))
-            {
-                button_create.IsEnabled = false;
-                label_mail.Background = Brushes.LightCoral;
-                label_mail.BorderBrush = Brushes.Red;
-            }
-            else
-            {
-                button_create.IsEnabled = true;
-                label_mail.Background = Brushes.LightGreen;
-                label_mail.BorderBrush = Brushes.Green;
-            }
-        }
-
-        private void label_password_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (label_password.Password.Length < 4 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
-            {
-                
-                label_password.Background = Brushes.LightCoral;
-                label_password.BorderBrush = Brushes.Red;
-                button_create.IsEnabled = false;
-
-            }
-            else
-            {
-                button_create.IsEnabled = true;
-                label_password.Background = Brushes.LightGreen;
-                label_password.BorderBrush = Brushes.Green;
-                text_password.Content = "";
-            }
-        }
-
-        private void label_datebirth_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (label_datebirth.SelectedDate > DateTime.Now.AddYears(-18) || label_datebirth.SelectedDate < DateTime.Now.AddYears(-99))
-            {
-                MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                button_create.IsEnabled = false;
             }
         }
 
@@ -168,5 +138,89 @@ namespace Stroymaterials.PageAuthorization
 
         }
 
+        private void label_datebirth_SelectedDateChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (label_datebirth.SelectedDate > DateTime.Now.AddYears(-18) || label_datebirth.SelectedDate < DateTime.Now.AddYears(-99))
+            {
+                MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                // button_create.IsEnabled = false;
+            }
+            else 
+            {
+                error++;
+                CheckCreate(error);
+            }
+        }
+
+        private void label_mail_LostFocus_1(object sender, RoutedEventArgs e)
+        {
+            if (!Regex.IsMatch(label_mail.Text.ToString(), cond))
+            {
+                // button_create.IsEnabled = false;
+                label_mail.Background = Brushes.LightCoral;
+                label_mail.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                // button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
+                label_mail.Background = Brushes.LightGreen;
+                label_mail.BorderBrush = Brushes.Green;
+            }
+        }
+
+        private void label_login_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (label_login.Text.Length < 6)
+            {
+                MessageBox.Show("Логин не может быть короче 6 символов", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                label_login.Background = Brushes.LightCoral;
+                label_login.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                error++;
+                CheckCreate(error);
+                label_login.Background = Brushes.LightGreen;
+                label_login.BorderBrush = Brushes.Green;
+            }
+        }
+
+        private void label_password_LostFocus_1(object sender, RoutedEventArgs e)
+        {
+            if (label_password.Password.Length < 4 && !Regex.IsMatch(label_password.Password, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+            {
+
+                label_password.Background = Brushes.LightCoral;
+                label_password.BorderBrush = Brushes.Red;
+                //button_create.IsEnabled = false;
+
+            }
+            else
+            {
+                // button_create.IsEnabled = true;
+                error++;
+                CheckCreate(error);
+                label_password.Background = Brushes.LightGreen;
+                label_password.BorderBrush = Brushes.Green;
+            }
+        }
+
+        private void label_password_rep_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (label_password_rep.Password != label_password.Password)
+            {
+                label_password_rep.Background = Brushes.LightCoral;
+                label_password_rep.BorderBrush = Brushes.Red;
+            }
+            else 
+            {
+                error++;
+                CheckCreate(error);
+                label_password.Background = Brushes.LightGreen;
+                label_password.BorderBrush = Brushes.Green;
+            }
+        }
     }
 }
