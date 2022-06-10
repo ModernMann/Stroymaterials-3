@@ -90,11 +90,11 @@ namespace Stroymaterials.PageAuthorization
         {
             if (error == 6)
             {
-                button_create.IsEnabled = false;
+                button_create.IsEnabled = true;
             }
             else
             {
-                button_create.IsEnabled = true;
+                button_create.IsEnabled = false;
             }
         }
 
@@ -104,7 +104,6 @@ namespace Stroymaterials.PageAuthorization
         {
             if (label_phone.Text.Length != 11 && !label_phone.Text.StartsWith("7") && !string.IsNullOrEmpty(label_phone.Text))
             {
-                //button_create.IsEnabled = false;
                 label_phone.Background = Brushes.LightCoral;
                 label_phone.BorderBrush = Brushes.Red;
             }
@@ -112,7 +111,6 @@ namespace Stroymaterials.PageAuthorization
             {
                 error++;
                 CheckCreate(error);
-                //button_create.IsEnabled = true;
                 label_phone.Background = Brushes.LightGreen;
                 label_phone.BorderBrush = Brushes.Green;
             }
@@ -143,7 +141,6 @@ namespace Stroymaterials.PageAuthorization
             if (label_datebirth.SelectedDate > DateTime.Now.AddYears(-18) || label_datebirth.SelectedDate < DateTime.Now.AddYears(-99))
             {
                 MessageBox.Show("Регистрироваться могут только люди страше 18 лет и младше 99", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                // button_create.IsEnabled = false;
             }
             else 
             {
@@ -156,13 +153,11 @@ namespace Stroymaterials.PageAuthorization
         {
             if (!Regex.IsMatch(label_mail.Text.ToString(), cond))
             {
-                // button_create.IsEnabled = false;
                 label_mail.Background = Brushes.LightCoral;
                 label_mail.BorderBrush = Brushes.Red;
             }
             else
             {
-                // button_create.IsEnabled = true;
                 error++;
                 CheckCreate(error);
                 label_mail.Background = Brushes.LightGreen;
@@ -194,12 +189,10 @@ namespace Stroymaterials.PageAuthorization
 
                 label_password.Background = Brushes.LightCoral;
                 label_password.BorderBrush = Brushes.Red;
-                //button_create.IsEnabled = false;
 
             }
             else
             {
-                // button_create.IsEnabled = true;
                 error++;
                 CheckCreate(error);
                 label_password.Background = Brushes.LightGreen;
